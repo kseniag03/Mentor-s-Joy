@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C11A3532A08EEAB004E8447 /* DocsTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11A3522A08EEAB004E8447 /* DocsTemplates.swift */; };
 		1C386D61297003E300831C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D60297003E300831C08 /* AppDelegate.swift */; };
 		1C386D63297003E300831C08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D62297003E300831C08 /* SceneDelegate.swift */; };
 		1C386D65297003E300831C08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D64297003E300831C08 /* ViewController.swift */; };
@@ -14,9 +15,11 @@
 		1C386D6D297003E700831C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C386D6B297003E700831C08 /* LaunchScreen.storyboard */; };
 		1C386D752970064B00831C08 /* PinLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D742970064B00831C08 /* PinLibrary.swift */; };
 		1C386D772970071900831C08 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D762970071900831C08 /* PDFViewController.swift */; };
+		2EA447385036C5A6FC3CB6B6 /* Pods_MentorsJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4502EB5F56A466AABFBFC4 /* Pods_MentorsJoy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C11A3522A08EEAB004E8447 /* DocsTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsTemplates.swift; sourceTree = "<group>"; };
 		1C386D5D297003E300831C08 /* MentorsJoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentorsJoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C386D60297003E300831C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C386D62297003E300831C08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,9 @@
 		1C386D6E297003E700831C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C386D742970064B00831C08 /* PinLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLibrary.swift; sourceTree = "<group>"; };
 		1C386D762970071900831C08 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		354F31FE21DCDBF3569EA9BD /* Pods-MentorsJoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentorsJoy.debug.xcconfig"; path = "Target Support Files/Pods-MentorsJoy/Pods-MentorsJoy.debug.xcconfig"; sourceTree = "<group>"; };
+		B54F7F601B4AAFF66B3B1429 /* Pods-MentorsJoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentorsJoy.release.xcconfig"; path = "Target Support Files/Pods-MentorsJoy/Pods-MentorsJoy.release.xcconfig"; sourceTree = "<group>"; };
+		DD4502EB5F56A466AABFBFC4 /* Pods_MentorsJoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MentorsJoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA447385036C5A6FC3CB6B6 /* Pods_MentorsJoy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				1C386D5F297003E300831C08 /* MentorsJoy */,
 				1C386D5E297003E300831C08 /* Products */,
+				43BAAD115BA3527CE89C6568 /* Pods */,
+				53E6CDF47097B36F20295D48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,11 +72,29 @@
 				1C386D64297003E300831C08 /* ViewController.swift */,
 				1C386D762970071900831C08 /* PDFViewController.swift */,
 				1C386D742970064B00831C08 /* PinLibrary.swift */,
+				1C11A3522A08EEAB004E8447 /* DocsTemplates.swift */,
 				1C386D69297003E700831C08 /* Assets.xcassets */,
 				1C386D6B297003E700831C08 /* LaunchScreen.storyboard */,
 				1C386D6E297003E700831C08 /* Info.plist */,
 			);
 			path = MentorsJoy;
+			sourceTree = "<group>";
+		};
+		43BAAD115BA3527CE89C6568 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				354F31FE21DCDBF3569EA9BD /* Pods-MentorsJoy.debug.xcconfig */,
+				B54F7F601B4AAFF66B3B1429 /* Pods-MentorsJoy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		53E6CDF47097B36F20295D48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD4502EB5F56A466AABFBFC4 /* Pods_MentorsJoy.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C386D71297003E700831C08 /* Build configuration list for PBXNativeTarget "MentorsJoy" */;
 			buildPhases = (
+				055EC89896CA5F95DF7E22C3 /* [CP] Check Pods Manifest.lock */,
 				1C386D59297003E300831C08 /* Sources */,
 				1C386D5A297003E300831C08 /* Frameworks */,
 				1C386D5B297003E300831C08 /* Resources */,
+				37840C2ECAB7C14E591CB997 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +164,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		055EC89896CA5F95DF7E22C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MentorsJoy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37840C2ECAB7C14E591CB997 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentorsJoy/Pods-MentorsJoy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentorsJoy/Pods-MentorsJoy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MentorsJoy/Pods-MentorsJoy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C386D59297003E300831C08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -142,6 +213,7 @@
 			files = (
 				1C386D772970071900831C08 /* PDFViewController.swift in Sources */,
 				1C386D65297003E300831C08 /* ViewController.swift in Sources */,
+				1C11A3532A08EEAB004E8447 /* DocsTemplates.swift in Sources */,
 				1C386D61297003E300831C08 /* AppDelegate.swift in Sources */,
 				1C386D63297003E300831C08 /* SceneDelegate.swift in Sources */,
 				1C386D752970064B00831C08 /* PinLibrary.swift in Sources */,
@@ -278,6 +350,7 @@
 		};
 		1C386D72297003E700831C08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 354F31FE21DCDBF3569EA9BD /* Pods-MentorsJoy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,6 +376,7 @@
 		};
 		1C386D73297003E700831C08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B54F7F601B4AAFF66B3B1429 /* Pods-MentorsJoy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
