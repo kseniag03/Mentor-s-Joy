@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C11A3532A08EEAB004E8447 /* DocsTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C11A3522A08EEAB004E8447 /* DocsTemplates.swift */; };
+		1C3172522A0AA171003E4FA8 /* CommonInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3172512A0AA171003E4FA8 /* CommonInputViewController.swift */; };
+		1C3172542A0AA18A003E4FA8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3172532A0AA18A003E4FA8 /* TabBarViewController.swift */; };
 		1C386D61297003E300831C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D60297003E300831C08 /* AppDelegate.swift */; };
 		1C386D63297003E300831C08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D62297003E300831C08 /* SceneDelegate.swift */; };
 		1C386D65297003E300831C08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D64297003E300831C08 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		1C11A3522A08EEAB004E8447 /* DocsTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsTemplates.swift; sourceTree = "<group>"; };
+		1C3172512A0AA171003E4FA8 /* CommonInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonInputViewController.swift; sourceTree = "<group>"; };
+		1C3172532A0AA18A003E4FA8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1C386D5D297003E300831C08 /* MentorsJoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentorsJoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C386D60297003E300831C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C386D62297003E300831C08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		1C386D5F297003E300831C08 /* MentorsJoy */ = {
 			isa = PBXGroup;
 			children = (
+				1C3172512A0AA171003E4FA8 /* CommonInputViewController.swift */,
+				1C3172532A0AA18A003E4FA8 /* TabBarViewController.swift */,
 				1C386D60297003E300831C08 /* AppDelegate.swift */,
 				1C386D62297003E300831C08 /* SceneDelegate.swift */,
 				1C386D64297003E300831C08 /* ViewController.swift */,
@@ -211,11 +217,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3172522A0AA171003E4FA8 /* CommonInputViewController.swift in Sources */,
 				1C386D772970071900831C08 /* PDFViewController.swift in Sources */,
 				1C386D65297003E300831C08 /* ViewController.swift in Sources */,
 				1C11A3532A08EEAB004E8447 /* DocsTemplates.swift in Sources */,
 				1C386D61297003E300831C08 /* AppDelegate.swift in Sources */,
 				1C386D63297003E300831C08 /* SceneDelegate.swift in Sources */,
+				1C3172542A0AA18A003E4FA8 /* TabBarViewController.swift in Sources */,
 				1C386D752970064B00831C08 /* PinLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

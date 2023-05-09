@@ -3,101 +3,150 @@
 //  MentorsJoy
 //
 
-import UIKit
-import PDFKit
+//import PDFKit
 import TPPDF
+import UIKit
 
 class ViewController: UIViewController {
     
-    let sampleURL = "https://www.tutorialspoint.com/swift/swift_tutorial.pdf"
+    private var currentDocType = DocumentType.task
     
-    var pdfURL: URL?
+    private let picker = UIPickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPdfUrl()
         setupView()
     }
     
     private func setupView() {
         self.view.backgroundColor = .systemGray6
+        setupButtons()
+        setupPicker()
+    }
+    
+    private func setupButton(button: UIButton, title : String, constY: CGFloat,
+                             _ backColor: UIColor = .systemRed, _ fontColor: UIColor = .white) {
+        // Edit an empty button
+        button.backgroundColor = backColor
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(fontColor, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(button)
         
-        // Create an "Open PDF" button
-        let openButton = UIButton()
-        openButton.backgroundColor = .red
-        openButton.setTitle("OPEN PDF", for: .normal)
-        openButton.setTitleColor(.white, for: .normal)
-        openButton.addTarget(self, action: #selector(openPDFButtonPressed), for: .touchUpInside)
-        openButton.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(openButton)
-        
-        // Create a "Download PDF" button
-        let downloadButton = UIButton()
-        downloadButton.backgroundColor = .blue
-        downloadButton.setTitle("DOWNLOAD PDF", for: .normal)
-        downloadButton.setTitleColor(.white, for: .normal)
-        downloadButton.addTarget(self, action: #selector(downloadPDFButtonPressed), for: .touchUpInside)
-        downloadButton.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(downloadButton)
-        
-        // Center the "Open PDF" button horizontally and vertically
+        // Center the button horizontally and vertically
         NSLayoutConstraint.activate([
-            openButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            openButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -30),
-            openButton.widthAnchor.constraint(equalToConstant: 150),
-            openButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        // Center the "Download PDF" button horizontally and vertically
-        NSLayoutConstraint.activate([
-            downloadButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            downloadButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 30),
-            downloadButton.widthAnchor.constraint(equalToConstant: 150),
-            downloadButton.heightAnchor.constraint(equalToConstant: 50)
+            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: constY),
+            button.widthAnchor.constraint(equalToConstant: 150),
+            button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    private func setupPdfUrl() {
-        guard let url = URL(string: sampleURL)
-        else { return }
-        pdfURL = url
+    private func setupButtons() {
+        let generateButton = UIButton()
+        setupButton(button: generateButton, title: "GENERATE", constY: 30)
+        generateButton.addTarget(self, action: #selector(openPDFButtonPressed), for: .touchUpInside)
+
+        let inputButton = UIButton()
+        setupButton(button: inputButton, title: "INPUT", constY: -30, .systemBlue)
+        inputButton.addTarget(self, action: #selector(inputTableButtonPressed), for: .touchUpInside)
     }
 
     @objc
     private func openPDFButtonPressed(_ sender: Any) {
         
-        let pdfViewController = PDFViewController()
-        //pdfViewController.pdfURL = self.pdfURL
-        navigationController?.pushViewController(pdfViewController, animated: true)
-        //present(pdfViewController, animated: false, completion: nil)
+        let pdf = PDFViewController()
+        //pdf.pdfURL = self.pdfURL
+        navigationController?.pushViewController(pdf, animated: true)
+        //present(pdf, animated: false, completion: nil)
     }
     
     @objc
-    private func downloadPDFButtonPressed(_ sender: Any) {
-        guard let url = URL(string: sampleURL) else { return }
-        
-        let urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-        
-        let downloadTask = urlSession.downloadTask(with: url)
-        downloadTask.resume()
+    private func inputTableButtonPressed(_ sender: Any) {
+        print("clicked")
+        let vc = TabBarViewController()//CommonInputViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        //present(vc, animated: true, completion: nil)
     }
 }
 
-extension ViewController:  URLSessionDownloadDelegate {
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("downloadLocation:", location)
-        // create destination URL with the original pdf name
-        guard let url = downloadTask.originalRequest?.url else { return }
-        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let destinationURL = documentsPath.appendingPathComponent(url.lastPathComponent)
-        // delete original copy
-        try? FileManager.default.removeItem(at: destinationURL)
-        // copy from temp to Document
-        do {
-            try FileManager.default.copyItem(at: location, to: destinationURL)
-            self.pdfURL = destinationURL
-        } catch let error {
-            print("Copy Error: \(error.localizedDescription)")
+extension ViewController {
+    
+    public func getDocNum() -> DocumentType {
+        return currentDocType
+    }
+    
+    private func setupPicker() {
+        picker.backgroundColor = .white
+        picker.layer.cornerRadius = 10
+        
+        //picker.center = view.center
+        view.addSubview(picker)
+        
+        //picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        picker.pinBottom(to: view.bottomAnchor)
+        
+        picker.dataSource = self
+        picker.delegate = self
+        
+    }
+}
+
+extension ViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    
+}
+
+extension ViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch row {
+        case 0:
+            return "Техническое задание"
+        case 1:
+            return "Программа и методика испытаний"
+        case 2:
+            return "Текст программы"
+        case 3:
+            return "Пояснительная записка"
+        case 4:
+            return "Руководство оператора"
+        default:
+            return ""
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch row {
+        case 0:
+            print("Выбран док: ТЗ\n")
+            currentDocType = DocumentType.task
+            break
+        case 1:
+            print("Выбран док: ПМИ\n")
+            currentDocType = DocumentType.testing
+            break
+        case 2:
+            print("Выбран док: ТП\n")
+            currentDocType = DocumentType.programm
+            break
+        case 3:
+            print("Выбран док: ПЗ\n")
+            currentDocType = DocumentType.note
+            break
+        case 4:
+            print("Выбран док: РО\n")
+            currentDocType = DocumentType.manual
+            break
+        default:
+            break
         }
     }
 }
