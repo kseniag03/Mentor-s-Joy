@@ -3,15 +3,9 @@
 //  MentorsJoy
 //
 
-//import PDFKit
-import TPPDF
 import UIKit
 
 class PDFViewController: UIViewController {
-    
-    private var docs = DocsCommon()
-    
-    private var currentFileType = "DEFAULT"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,54 +13,41 @@ class PDFViewController: UIViewController {
     }
     
     private func setupView() {
-        
-        //let docs = DocsCommon() // get definite doc using type from vc picker !!!!!!
-        
-        let docsList = [docs.titles, docs.doc, docs.lrc]
-        
-        guard let url = getPDFDoc(documents: docsList) else { return }
-        
-        // MARK: somehow handle url of this file...
-    }
-    
-    private func getPDFDoc(documents: [PDFDocument]) -> URL? {
-        
-        let generator = PDFMultiDocumentGenerator(documents: documents)
-        let url = try? generator.generateURL(filename: "example-\(currentFileType).pdf")
-        
-        print("url: \(String(describing: url))")
-        
-        return url
+        view.backgroundColor = .systemIndigo
     }
 }
 
-protocol GenerateDoc {
-    func generate(type: DocumentType)
-}
+// MARK: create doc using Type in some procotol
 
 extension PDFViewController: GenerateDoc {
     func generate(type: DocumentType) {
+        print(" GENERATE LAUNCH ")
         switch type {
         case .task:
-            docs = type.getDocumentObject() as? DocsTask ?? DocsCommon()
-            currentFileType = "TA"
+            let docs = DocsTask()
+            docs.getURLFileName(fileName: "TA")
+            docs.craftDoc()
             break
         case .note:
-            docs = type.getDocumentObject() as? DocsNote ?? DocsCommon()
-            currentFileType = "NO"
+            let docs = DocsNote()
+            docs.getURLFileName(fileName: "NO")
+            docs.craftDoc()
             break
         case .testing:
-            docs = type.getDocumentObject() as? DocsTesting ?? DocsCommon()
-            currentFileType = "TE"
-            break;
+            let docs = DocsTesting()
+            docs.getURLFileName(fileName: "TE")
+            docs.craftDoc()
+            break
         case .manual:
-            docs = type.getDocumentObject() as? DocsManual ?? DocsCommon()
-            currentFileType = "MA"
-            break;
+            let docs = DocsManual()
+            docs.getURLFileName(fileName: "MA")
+            docs.craftDoc()
+            break
         case .programm:
-            docs = type.getDocumentObject() as? DocsProgramm ?? DocsCommon()
-            currentFileType = "PR"
-            break;
+            let docs = DocsProgramm()
+            docs.getURLFileName(fileName: "PR")
+            docs.craftDoc()
+            break
         }
     }
 }

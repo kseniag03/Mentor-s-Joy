@@ -5,24 +5,6 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
-    let textField = UITextField()
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(textField)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        textField.frame = self.contentView.bounds.inset(by: UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15))
-    }
-}
-
 class CommonInputViewController: UIViewController {
     
     let tableView = UITableView()
@@ -43,8 +25,9 @@ class CommonInputViewController: UIViewController {
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
-
 }
+
+// MARK: realise tableView delegate and dataSource
 
 extension CommonInputViewController: UITableViewDataSource, UITableViewDelegate {
 
@@ -79,9 +62,9 @@ extension CommonInputViewController: UITableViewDataSource, UITableViewDelegate 
         }
         return UITableViewCell()
     }
-
 }
 
+// MARK: add content to tableView cells
 
 extension CommonInputViewController {
     
@@ -160,108 +143,5 @@ extension CommonInputViewController {
     @objc
     private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // Handle the selection of an option
-    }
-}
-
-
-
-
-
-class TaskInputViewController: CommonInputViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
-    }
-    
-    private func setupView() {
-        self.view.backgroundColor = .systemPink
-        tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
-        self.view.addSubview(tableView)
-    }
-}
-
-class TestingInputViewController: CommonInputViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
-    }
-    
-    private func setupView() {
-        self.view.backgroundColor = .systemPurple
-        tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
-        self.view.addSubview(tableView)
-    }
-}
-
-class ProgrammInputViewController: CommonInputViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
-    }
-    
-    private func setupView() {
-        self.view.backgroundColor = .systemYellow
-        tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
-        self.view.addSubview(tableView)
-    }
-}
-
-class NoteInputViewController: CommonInputViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
-    }
-    
-    private func setupView() {
-        self.view.backgroundColor = .systemCyan
-        tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
-        self.view.addSubview(tableView)
-    }
-}
-
-class ManualInputViewController: CommonInputViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
-    }
-    
-    private func setupView() {
-        self.view.backgroundColor = .systemMint
-        tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
-        self.view.addSubview(tableView)
     }
 }

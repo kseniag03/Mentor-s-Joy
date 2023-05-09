@@ -3,7 +3,6 @@
 //  MentorsJoy
 //
 
-//import PDFKit
 import TPPDF
 import UIKit
 
@@ -67,10 +66,6 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-    /*
-    public func getDocNum() -> DocumentType {
-        return currentDocType
-    }*/
     
     private func setupPicker() {
         picker.backgroundColor = .white
