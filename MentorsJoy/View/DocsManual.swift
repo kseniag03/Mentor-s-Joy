@@ -5,8 +5,53 @@
 
 import TPPDF
 
+extension DocsManual: DocsSettings {
+
+    // MARK: - craft doc of definite type (use different methods)
+    func craftDoc() {
+        setupTitle(document: titles, type: .task)
+        addNewPage(document: titles)
+        setupLU(document: titles, type: .task)
+        pageNum += 1
+        setupHeader(document: doc)
+        setupAnnotation(document: doc)
+        addNewPage(document: doc)
+        // MARK: add if-cond: if d is empty, do not add glossary at document
+        if glossaryList.count > 0 {
+            setupGlossary(document: doc, glossaryList)
+            addNewPage(document: doc)
+        }
+        setupPurposes(document: doc)
+        addNewPage(document: doc)
+        // 2
+        // 3
+        // 4
+        setupSourcesList(document: doc)
+        pageNum += 1
+        setupFooter(document: doc)
+        setupLRC(document: lrc)
+        
+        // MARK: fix pagination or delete it......
+        var pagination = PDFPagination()
+        pagination.range = (start: 3, end: 7)
+        pagination.hiddenPages = [5]
+        doc.pagination = pagination
+    }
+    
+    func setupAnnotation(document: PDFDocument) {
+        setupAnnotation(document: document, content: getAnnotation(projectTopic))
+    }
+}
+
+
 // MARK: - РУКОВОДСТВО ОПЕРАТОРА
 final class DocsManual: DocsCommon {
+    
+    private func setupPurposes(document: PDFDocument) {
+        
+        // setup with sections number 1
+        setupDocumentation(document: document, sectionNum: 1)
+    }
     
     func getAnnotation(_ projectTopic: String = "PROJECT TOPIC") -> String {
         return "\tТехническое задание – это основной документ, оговаривающий набор требований и порядок создания программного продукта, в соответствии с которым производится разработка программы, ее тестирование и приемка.\n" +

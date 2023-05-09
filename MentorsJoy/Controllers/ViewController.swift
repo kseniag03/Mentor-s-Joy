@@ -54,42 +54,35 @@ class ViewController: UIViewController {
 
     @objc
     private func openPDFButtonPressed(_ sender: Any) {
-        
         let pdf = PDFViewController()
         pdf.generate(type: currentDocType)
         navigationController?.pushViewController(pdf, animated: true)
-        //present(pdf, animated: false, completion: nil)
     }
     
     @objc
     private func inputTableButtonPressed(_ sender: Any) {
-        print("clicked")
-        let vc = TabBarViewController()//CommonInputViewController()
+        let vc = TabBarViewController()
         navigationController?.pushViewController(vc, animated: true)
-        //present(vc, animated: true, completion: nil)
     }
 }
 
 extension ViewController {
-    
+    /*
     public func getDocNum() -> DocumentType {
         return currentDocType
-    }
+    }*/
     
     private func setupPicker() {
         picker.backgroundColor = .white
         picker.layer.cornerRadius = 10
         
-        //picker.center = view.center
         view.addSubview(picker)
         
-        //picker.translatesAutoresizingMaskIntoConstraints = false
         picker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         picker.pinBottom(to: view.bottomAnchor)
         
         picker.dataSource = self
         picker.delegate = self
-        
     }
 }
 

@@ -5,6 +5,33 @@
 
 import TPPDF
 
+extension DocsCommon: GenerateDoc {
+    
+    func generate(type: DocumentType) {
+        func generate(type: DocumentType) {
+            switch type {
+            case .task:
+                break
+            case .note:
+                break
+            case .testing:
+                break;
+            case .manual:
+                break;
+            case .programm:
+                break;
+            }
+        }
+    }
+}
+
+protocol DocsSettings {
+    
+    func craftDoc()
+    
+    func setupAnnotation(document: PDFDocument)
+}
+
 /*
  0 ФИО исполнителя
  1 ФИО научника
@@ -47,9 +74,10 @@ class DocsCommon {
     var projectName = "Project Name"
     var projectNameEng = "English Project Name"
 
-    
     var pageNum = 1
     var section = 1
+    
+    var glossaryList: [String: String] = [:]
     
     let style = PDFTableCellStyle(colors: (fill: .clear, text: .black), borders: .none, font: UIFont(descriptor: UIFontDescriptor(name: "TimesNewRomanPSMT", size: 12.0), size: 12.0))
     
@@ -136,6 +164,12 @@ class DocsCommon {
     
     func setupYear(year: String) {
         self.year = year
+    }
+    
+    private func setupView() {
+        titles.background.color = .systemGray6
+        doc.background.color = .systemGray6
+        lrc.background.color = .systemGray6
     }
     
     // MARK: setup docs parts styles
@@ -429,15 +463,13 @@ class DocsCommon {
         setupYear(document: document)
     }
     
-    func setupAnnotation(document: PDFDocument) {
+    func setupAnnotation(document: PDFDocument, content: String) {
 
         setupPageHeader1(document: document, title: "АННОТАЦИЯ")
         
         let annotation = PDFTable(rows: 1, columns: 1)
-    
-        let docsInfo = DocumentType.task.getDocumentObject() as? DocsTask
 
-        annotation[0, 0].content = try? PDFTableContent(content: docsInfo?.getAnnotation())
+        annotation[0, 0].content = try? PDFTableContent(content: content)
         annotation[0, 0].style = style
         annotation[column: 0].allCellsAlignment = .left
         
@@ -561,4 +593,70 @@ class DocsCommon {
         document.add(table: table)
     }
     
+    // MARK: related functionality (such docs parts has several types, but not all)
+    
+    func setupPurposes(document: PDFDocument, sectionNum: Int) {
+        
+        setupPageHeader1(document: document, title: "НАЗНАЧЕНИЕ РАЗРАБОТКИ", "\(sectionNum).\t")
+        
+        setupPageHeader2(document: document, title: "Функциональное назначение", number: "\(sectionNum).1.")
+        
+        setupPageHeader2(document: document, title: "Эксплуатационное назначение", number: "\(sectionNum).2.")
+    }
+    
+    func setupDocumentation(document: PDFDocument, sectionNum: Int) {
+        
+        setupPageHeader1(document: document, title: "ТРЕБОВАНИЯ К ПРОГРАММНОЙ ДОКУМЕНТАЦИИ", "\(sectionNum).\t")
+        
+        setupPageHeader2(document: document, title: "Состав программной документации", number: "\(sectionNum).1.")
+        
+        var docs: [String] = []
+        for doc in DocsCommon().docs {
+            var new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
+            docs.append(new)
+        }
+        setupNumericList(document: document, list: docs)
+        
+        setupPageHeader2(document: document, title: "Специальные требования к программной документации", number: "\(sectionNum).2.")
+        
+        docs.removeAll()
+        for doc in DocsCommon().docsReqs {
+            var new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
+            docs.append(new)
+        }
+        setupNumericList(document: document, list: docs)
+    }
+    
+    func setupTechnoEconomy(document: PDFDocument, sectionNum: Int, _ rivals : [String] = [], _ advantages : [String] = [], _ efficiency : [String] = []) {
+        
+        setupPageHeader1(document: document, title: "ТЕХНИКО­-ЭКОНОМИЧЕСКИЕ ПОКАЗАТЕЛИ", "\(sectionNum).\t")
+        
+        setupPageHeader2(document: document, title: "Ориентировочная экономическая эффективность", number: "\(sectionNum).1.")
+        
+        if (efficiency.count > 0) {
+            setupNumericList(document: document, list: efficiency)
+        } else {
+            setupSimpleText(document: document, text: "\tВ рамках данной работы расчет экономической эффективности не предусмотрен.")
+        }
+        
+        setupPageHeader2(document: document, title: "Предполагаемая потребность", number: "\(sectionNum).2.")
+        
+        // insert text
+        
+        setupPageHeader2(document: document, title: "Экономические преимущества разработки по сравнению с отечественными и зарубежными образцами или аналогами", number: "\(sectionNum).3.")
+        
+        // insert list of rivals apps
+        
+        if (rivals.count > 0) {
+            setupNumericList(document: document, list: rivals)
+        }
+        
+        // insert list of project advantages
+        
+        if (advantages.count > 0) {
+            setupNumericList(document: document, list: advantages)
+        }
+        
+        // insert line about killer-feature
+    }
 }

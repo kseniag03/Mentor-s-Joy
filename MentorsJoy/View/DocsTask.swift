@@ -5,85 +5,59 @@
 
 import TPPDF
 
-// MARK: - ТЕХНИЧЕСКОЕ ЗАДАНИЕ
-final class DocsTask: DocsCommon {
-
-    private func setupView() {
-        
-        titles.background.color = .systemGray6
-        doc.background.color = .systemGray6
-        lrc.background.color = .systemGray6
-        
-        // MARK: - craft doc of definite type (use different methods)
-        
-        // CRAFT
+extension DocsTask: DocsSettings {
+    
+    // MARK: - craft doc of definite type (use different methods)
+    func craftDoc() {
         setupTitle(document: titles, type: .task)
         addNewPage(document: titles)
         setupLU(document: titles, type: .task)
         pageNum += 1
-        
         setupHeader(document: doc)
-        
         setupAnnotation(document: doc)
-        
         addNewPage(document: doc)
-        
-        // add if-cond: if d is empty, do not add glossary at document
-        let d = ["PDF (Portable Document Format)" : "формат файла, используемый для представления электронных документов и обмена ими. PDF-файлы предназначены для сохранения исходного макета, изображений, текстов и шрифтов документа и могут быть просмотрены, распечатаны и совместно использованы на различных платформах и устройствах. Формат PDF обычно используется для таких документов, как контракты, счета, брошюры, руководства и книги, и часто предпочтительнее других форматов файлов из-за его переносимости и простоты использования"]
-        setupGlossary(document: doc, d)
-        addNewPage(document: doc)
-        
+        // MARK: add if-cond: if d is empty, do not add glossary at document
+        if glossaryList.count > 0 {
+            setupGlossary(document: doc, glossaryList)
+            addNewPage(document: doc)
+        }
         setupIntro(document: doc)
         addNewPage(document: doc)
-        
         setupReasons(document: doc)
         addNewPage(document: doc)
-        
         setupPurposes(document: doc)
         addNewPage(document: doc)
-        
         setupFunctionality(document: doc)
         addNewPage(document: doc)
-        
         setupDocumentation(document: doc)
         addNewPage(document: doc)
-        
         setupTechnoEconomy(document: doc)
         addNewPage(document: doc)
-        
         setupStages(document: doc)
         addNewPage(document: doc)
-        
         setupAcceptance(document: doc)
         addNewPage(document: doc)
-        
         setupSourcesList(document: doc)
         pageNum += 1
-        
         setupFooter(document: doc)
-        
         setupLRC(document: lrc)
         
         // MARK: fix pagination or delete it......
-        
         var pagination = PDFPagination()
         pagination.range = (start: 3, end: 7)
         pagination.hiddenPages = [5]
-        
         doc.pagination = pagination
-        
-        /*
-        let docsList = [titles, doc, lrc]
-        
-        guard let url = getPDFDoc(documents: docsList) else { return }*/
     }
     
-    // MARK: styles, formats
+    func setupAnnotation(document: PDFDocument) {
+        setupAnnotation(document: document, content: getAnnotation(projectTopic: projectTopic))
+    }
+}
 
+// MARK: - ТЕХНИЧЕСКОЕ ЗАДАНИЕ
+final class DocsTask: DocsCommon {
     
-    // MARK: Docs task parts creation
-    
-    
+    // MARK: Docs task unique parts creation
     
     private func setupIntro(document: PDFDocument) {
 
@@ -105,11 +79,8 @@ final class DocsTask: DocsCommon {
     
     private func setupPurposes(document: PDFDocument) {
         
-        setupPageHeader1(document: document, title: "НАЗНАЧЕНИЕ РАЗРАБОТКИ", "3.\t")
-        
-        setupPageHeader2(document: document, title: "Функциональное назначение", number: "3.1.")
-        
-        setupPageHeader2(document: document, title: "Эксплуатационное назначение", number: "3.2.")
+        // setup with sections number 3
+        setupDocumentation(document: document, sectionNum: 3)
     }
     
     private func setupFunctionality(document: PDFDocument, _ specialReqs : [String] = []) {
@@ -195,59 +166,13 @@ final class DocsTask: DocsCommon {
     }
     
     private func setupDocumentation(document: PDFDocument) {
-        
-        setupPageHeader1(document: document, title: "ТРЕБОВАНИЯ К ПРОГРАММНОЙ ДОКУМЕНТАЦИИ", "5.\t")
-        
-        setupPageHeader2(document: document, title: "Состав программной документации", number: "5.1.")
-        
-        var docs: [String] = []
-        for doc in DocsCommon().docs {
-            var new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
-            docs.append(new)
-        }
-        setupNumericList(document: document, list: docs)
-        
-        setupPageHeader2(document: document, title: "Специальные требования к программной документации", number: "5.2.")
-        
-        docs.removeAll()
-        for doc in DocsCommon().docsReqs {
-            var new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
-            docs.append(new)
-        }
-        setupNumericList(document: document, list: docs)
+        // setup with sections number 5
+        setupDocumentation(document: document, sectionNum: 5)
     }
     
     private func setupTechnoEconomy(document: PDFDocument, _ rivals : [String] = [], _ advantages : [String] = [], _ efficiency : [String] = []) {
-        
-        setupPageHeader1(document: document, title: "ТЕХНИКО­-ЭКОНОМИЧЕСКИЕ ПОКАЗАТЕЛИ", "6.\t")
-        
-        setupPageHeader2(document: document, title: "Ориентировочная экономическая эффективность", number: "6.1.")
-        
-        if (efficiency.count > 0) {
-            setupNumericList(document: document, list: efficiency)
-        } else {
-            setupSimpleText(document: document, text: "\tВ рамках данной работы расчет экономической эффективности не предусмотрен.")
-        }
-        
-        setupPageHeader2(document: document, title: "Предполагаемая потребность", number: "6.2.")
-        
-        // insert text
-        
-        setupPageHeader2(document: document, title: "Экономические преимущества разработки по сравнению с отечественными и зарубежными образцами или аналогами", number: "6.3.")
-        
-        // insert list of rivals apps
-        
-        if (rivals.count > 0) {
-            setupNumericList(document: document, list: rivals)
-        }
-        
-        // insert list of project advantages
-        
-        if (advantages.count > 0) {
-            setupNumericList(document: document, list: advantages)
-        }
-        
-        // insert line about killer-feature
+        // setup with sections number 6
+        setupTechnoEconomy(document: document, sectionNum: 6, rivals, advantages, efficiency)
     }
     
     private func setupStages(document: PDFDocument) {
@@ -279,7 +204,7 @@ final class DocsTask: DocsCommon {
         setupSimpleText(document: document, text: "\tПрием программы происходит при ее полной работоспособности при различных входных данных, при выполнении всего функционала, указанного в пункте 4.1.1 технического задания, при выполнении требований, указанных в пункте 4.2. технического задания.\n" + "\tЗащита курсового проекта осуществляется комиссией, состоящей из преподавателей департамента программной инженерии, в утвержденные приказом декана ФКН НИУ ВШЭ сроки.")
     }
     
-    func getAnnotation(_ projectTopic: String = "PROJECT TOPIC") -> String {
+    func getAnnotation(projectTopic: String) -> String {
         return "\tТехническое задание – это основной документ, оговаривающий набор требований и порядок создания программного продукта, в соответствии с которым производится разработка программы, ее тестирование и приемка.\n" +
         "\tНастоящее Техническое задание на разработку программы «\(projectTopic)» содержит следующие разделы: «Введение», «Основания для разработки», «Назначение разработки», «Требования к программе», «Требования к программной документации», «Технико-экономические показатели», «Стадии и этапы разработки», «Порядок контроля и приемки» и список использованной литературы.\n" +
         "\tВ разделе «Введение» указано наименование и краткая характеристика области применения программы «\(projectTopic)».\n" +

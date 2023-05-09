@@ -5,8 +5,57 @@
 
 import TPPDF
 
+extension DocsTesting: DocsSettings {
+
+    // MARK: - craft doc of definite type (use different methods)
+    func craftDoc() {
+        setupTitle(document: titles, type: .task)
+        addNewPage(document: titles)
+        setupLU(document: titles, type: .task)
+        pageNum += 1
+        setupHeader(document: doc)
+        setupAnnotation(document: doc)
+        addNewPage(document: doc)
+        // MARK: add if-cond: if d is empty, do not add glossary at document
+        if glossaryList.count > 0 {
+            setupGlossary(document: doc, glossaryList)
+            addNewPage(document: doc)
+        }
+        // 1 setupIntro(document: doc)
+        addNewPage(document: doc)
+        //2 setupPurposes(document: doc)
+        addNewPage(document: doc)
+        //3 setupFunctionality(document: doc)
+        addNewPage(document: doc)
+        setupDocumentation(document: doc)
+        addNewPage(document: doc)
+        // 5
+        // 6
+        setupSourcesList(document: doc)
+        pageNum += 1
+        setupFooter(document: doc)
+        setupLRC(document: lrc)
+        
+        // MARK: fix pagination or delete it......
+        var pagination = PDFPagination()
+        pagination.range = (start: 3, end: 7)
+        pagination.hiddenPages = [5]
+        doc.pagination = pagination
+    }
+    
+    func setupAnnotation(document: PDFDocument) {
+        setupAnnotation(document: document, content: getAnnotation(projectTopic))
+    }
+}
+
+
 // MARK: - ПРОГРАММА И МЕТОДИКА ИСПЫТАНИЙ
 final class DocsTesting: DocsCommon {
+    
+    private func setupDocumentation(document: PDFDocument) {
+        // setup with sections number 4
+        setupDocumentation(document: document, sectionNum: 4)
+    }
     
     func getAnnotation(_ projectTopic: String = "PROJECT TOPIC") -> String {
         return "\tТехническое задание – это основной документ, оговаривающий набор требований и порядок создания программного продукта, в соответствии с которым производится разработка программы, ее тестирование и приемка.\n" +
