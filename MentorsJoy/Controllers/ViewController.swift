@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     private func openPDFButtonPressed(_ sender: Any) {
         
         let pdf = PDFViewController()
-        //pdf.pdfURL = self.pdfURL
+        pdf.generate(type: currentDocType)
         navigationController?.pushViewController(pdf, animated: true)
         //present(pdf, animated: false, completion: nil)
     }
@@ -106,6 +106,7 @@ extension ViewController: UIPickerViewDataSource {
 }
 
 extension ViewController: UIPickerViewDelegate {
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch row {
         case 0:
