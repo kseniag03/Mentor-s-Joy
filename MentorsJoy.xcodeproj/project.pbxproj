@@ -173,11 +173,11 @@
 			isa = PBXGroup;
 			children = (
 				1CD1A6522A0ABF7A00BF96FC /* DocsCommon.swift */,
-				1CD1A6632A0B07A100BF96FC /* CommonRelatedFunctionality.swift */,
 				1CD1A65B2A0B069100BF96FC /* CommonChangeFields.swift */,
 				1CD1A65D2A0B06C500BF96FC /* CommonGenerate.swift */,
 				1CD1A65F2A0B06FE00BF96FC /* CommonDocsPartsStyle.swift */,
 				1CD1A6612A0B074200BF96FC /* CommonDocsPartsContent.swift */,
+				1CD1A6632A0B07A100BF96FC /* CommonRelatedFunctionality.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

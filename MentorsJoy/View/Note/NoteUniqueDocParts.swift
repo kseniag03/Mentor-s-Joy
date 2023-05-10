@@ -25,7 +25,7 @@ extension DocsNote {
     func setupPurposes(document: PDFDocument) {
         
         // setup with sections number 2
-        common.setupDocumentation(document: document, sectionNum: 2)
+        common.setupPurposes(document: document, sectionNum: 2)
         
         // add short description too
         common.setupPageHeader2(document: document, title: "Краткая характеристика области применения программы", number: "2.3.")
@@ -39,7 +39,7 @@ extension DocsNote {
         
         common.setupPageHeader2(document: document, title: "Описание алгоритма и функционирования программы", number: "3.2.")
         
-        common.setupPageHeader3(document: document, title: "Выбор архитектуры проекта", number: "3.2.1")
+        common.setupPageHeader3(document: document, title: "Выбор архитектуры проекта", number: "3.2.1.")
         
         // MARK: Handle case when you need to setup titles using user's input
         

@@ -30,7 +30,7 @@ extension DocsTask {
     func setupPurposes(document: PDFDocument) {
         
         // setup with sections number 3
-        common.setupDocumentation(document: document, sectionNum: 3)
+        common.setupPurposes(document: document, sectionNum: 3)
     }
     
     func setupFunctionality(document: PDFDocument, _ specialReqs : [String] = []) {
@@ -40,7 +40,7 @@ extension DocsTask {
         
         common.setupPageHeader2(document: document, title: "Требования к функциональным характеристикам", number: "4.1.")
         
-        common.setupPageHeader3(document: document, title: "Требования к составу выполняемых функций", number: "4.1.1")
+        common.setupPageHeader3(document: document, title: "Требования к составу выполняемых функций", number: "4.1.1.")
         
         // MARK: here must be list!!!!!!!
         
@@ -54,7 +54,7 @@ extension DocsTask {
         
         common.setupPageHeader2(document: document, title: "Требования к надежности", number: "4.2.")
         
-        common.setupPageHeader3(document: document, title: "Требования к обеспечению надежного (устойчивого) функционирования программы", number: "4.2.1")
+        common.setupPageHeader3(document: document, title: "Требования к обеспечению надежного (устойчивого) функционирования программы", number: "4.2.1.")
         
         // MARK: add list!!
         
@@ -68,7 +68,7 @@ extension DocsTask {
         
         common.setupPageHeader2(document: document, title: "Условия эксплуатации", number: "4.4.")
         
-        common.setupPageHeader3(document: document, title: "Климатические условия эксплуатации", number: "4.4.1")
+        common.setupPageHeader3(document: document, title: "Климатические условия эксплуатации", number: "4.4.1.")
         
         common.setupSimpleText(document: document, text: "\tКлиматические условия эксплуатации, при которых программа обязана выполнять весь функционал, должны удовлетворять требованиям, предъявляемым к смартфонам в части условий их эксплуатации.\n" + "\tУстройство предназначено для работы в закрытом отапливаемом помещении со стабильными климатическими условиями категории согласно ГОСТ 15150-69 [1].")
         
@@ -92,7 +92,7 @@ extension DocsTask {
         
         common.setupPageHeader2(document: document, title: "Требования к транспортированию и хранению", number: "4.8.")
         
-        common.setupPageHeader3(document: document, title: "Требования к хранению и транспортировке программных документов, предоставляемых в печатном виде", number: "4.8.1")
+        common.setupPageHeader3(document: document, title: "Требования к хранению и транспортировке программных документов, предоставляемых в печатном виде", number: "4.8.1.")
         
         common.setupSimpleText(document: document, text: "\tТребования к транспортировке и хранению программных документов являются стандартными и должны соответствовать общим требованиям хранения и транспортировки печатной продукции:")
         

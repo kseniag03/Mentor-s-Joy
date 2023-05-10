@@ -12,7 +12,7 @@ extension DocsManual {
     func setupPurposes(document: PDFDocument) {
         
         // setup with sections number 1
-        common.setupDocumentation(document: document, sectionNum: 1)
+        common.setupPurposes(document: document, sectionNum: 1)
     }
     
     func getAnnotation(_ projectTopic: String = "PROJECT TOPIC") -> String {

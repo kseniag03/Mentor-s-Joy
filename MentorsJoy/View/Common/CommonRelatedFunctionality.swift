@@ -26,7 +26,7 @@ extension DocsCommon {
         
         var docs: [String] = []
         for doc in DocsCommon().docs {
-            var new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
+            let new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
             docs.append(new)
         }
         setupNumericList(document: document, list: docs)
@@ -35,7 +35,7 @@ extension DocsCommon {
         
         docs.removeAll()
         for doc in DocsCommon().docsReqs {
-            var new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
+            let new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
             docs.append(new)
         }
         setupNumericList(document: document, list: docs)

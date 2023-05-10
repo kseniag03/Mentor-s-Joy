@@ -15,7 +15,7 @@ final class DocsManual {
 extension DocsManual: DocsSettings {
     
     func getURLFileName(fileName: String) {
-        //common.fileName = fileName
+        common.fileName = fileName
     }
 
     // MARK: - craft doc of definite type (use different methods)
