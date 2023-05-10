@@ -5,17 +5,45 @@
 
 // MARK: change fields values using user's input
 
-extension DocsCommon {
+protocol ChangeFieldsValue {
+    
+    func setupPerformerName(name: String)
+    
+    func setupMentorName(name: String)
+    
+    func setupYear(year: String)
+    
+    func setupDate(year: String)
+    
+    func setupCodifier(code: String, type: DocumentType)
+    
+    func setupGroup(group: String)
+    
+    func setupCity(city: String)
+    
+    func setupProjectTopic(topic: String)
+    
+    func setupProjectName(name: String)
+    
+    func setupProjectNameEng(nameEng: String)
+    
+    func setupShortDecription(description: String)
+    
+    func setupFunctionPurpose(purpose: String)
+    
+    func setupExploitPurpose(purpose: String)
+    
+    func addGlossaryDictItem(key: String, value: String)
+    
+    func addSourceListItem(item: String)
+}
+
+extension DocsCommon {//}: ChangeFieldsValue {
     
     /*
-     
-     
+
      var year = "2023"
      var date = ""
-
-     var glossaryList: [String: String] = [:]
-     var sourceList: [String] = []
-     
      
      */
     
@@ -86,7 +114,12 @@ extension DocsCommon {
     
     func addGlossaryDictItem(key: String, value: String) {
         self.glossaryList[key] = value
-        //self.glossaryList = self.glossaryList.sorted(using: .localized)
+        let sortedDict = Dictionary(
+            uniqueKeysWithValues: self.glossaryList.sorted(
+                by: { $0.key < $1.key }
+            )
+        )
+        self.glossaryList = sortedDict
     }
     
     func addSourceListItem(item: String) {

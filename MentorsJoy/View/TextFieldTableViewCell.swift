@@ -7,6 +7,8 @@ import UIKit
 
 class TextFieldTableViewCell: UITableViewCell {
     let textField = UITextField()
+    
+    public var delegate: CellDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,4 +25,11 @@ class TextFieldTableViewCell: UITableViewCell {
             by: UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
         )
     }
+    
+    @objc
+    private func textViewDidChange(_ sender: UITextView) {
+        delegate?.cellValueDidChange(self)
+    }
 }
+
+// MARK: add custom cells with segmenterControl and datePicker

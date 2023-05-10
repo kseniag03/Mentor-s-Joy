@@ -5,6 +5,10 @@
 
 import UIKit
 
+protocol CellDelegate {
+    func cellValueDidChange(_ cell: UITableViewCell)
+}
+
 class CommonInputViewController: UIViewController {
     
     let tableView = UITableView()
@@ -40,20 +44,24 @@ extension CommonInputViewController: UITableViewDataSource, UITableViewDelegate 
         case 0...2, 4...8, 10...12:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TextFieldTableViewCell {
                 cell.textField.placeholder = getText(i: indexPath.row)
+                //cell.delegate = self
                 return cell
             }
             break;
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             getDatePicker(cell: cell)
+            //cell.delegate = self
             return cell
         case 9:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             getCity(cell: cell)
+            //cell.delegate = self
             return cell
         case 13...14:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TextFieldTableViewCell {
                 cell.textField.placeholder = getText(i: indexPath.row)
+                //cell.delegate = self
                 return cell
             }
             break;

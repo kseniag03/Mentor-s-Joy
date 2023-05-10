@@ -28,9 +28,11 @@ extension DocsManual: DocsSettings {
         // MARK: main part of doc
         setupPurposes(document: common.doc)
         common.addNewPage(document: common.doc)
-        // 2
-        // 3
-        // 4 without adding page
+        setupConditions(document: common.doc)
+        common.addNewPage(document: common.doc)
+        setupExecution(document: common.doc)
+        common.addNewPage(document: common.doc)
+        setupMessageToOperator(document: common.doc)
         
         // MARK: end of doc and its full craft
         common.setupDocEnd()

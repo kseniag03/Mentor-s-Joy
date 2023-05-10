@@ -26,16 +26,17 @@ extension DocsTesting: DocsSettings {
         common.setupDocBeginAfterAnnotation()
 
         // MARK: main part of doc
-        // 1 setupIntro(document: doc)
+        setupObject(document: common.doc)
         common.addNewPage(document: common.doc)
-        //2 setupPurposes(document: doc)
+        setupPurpose(document: common.doc)
         common.addNewPage(document: common.doc)
-        //3 setupFunctionality(document: doc)
+        setupFunctionality(document: common.doc)
         common.addNewPage(document: common.doc)
         setupDocumentation(document: common.doc)
         common.addNewPage(document: common.doc)
-        // 5
-        // 6 without adding page
+        setupToolsAndOrder(document: common.doc)
+        common.addNewPage(document: common.doc)
+        setupMethods(document: common.doc)
         
         // MARK: end of doc and its full craft
         common.setupDocEnd()
