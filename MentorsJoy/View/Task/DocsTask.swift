@@ -15,6 +15,7 @@ final class DocsTask {
 extension DocsTask: DocsSettings {
     
     func getURLFileName(fileName: String) {
+        print("FILE NAME = \(fileName)")
         common.fileName = fileName
     }
     

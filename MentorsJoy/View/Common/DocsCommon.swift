@@ -32,11 +32,12 @@ import TPPDF
 
 class DocsCommon {
     
-    let titles = PDFDocument(format: .a4)
-    let doc = PDFDocument(format: .a4)
-    let lrc = PDFDocument(format: .a4)
+    var titles = PDFDocument(format: .a4)
+    var doc = PDFDocument(format: .a4)
+    var lrc = PDFDocument(format: .a4)
     
     var fileName = "DEFAULT"
+    var url: URL?
     
     var performerName = "ФИО"
     var mentorName = "ФИО"

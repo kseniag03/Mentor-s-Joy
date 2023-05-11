@@ -46,7 +46,7 @@ extension DocsCommon {
             try? PDFTableContent(content: "СОГЛАСОВАНО"),
             try? PDFTableContent(content: "Должность"),
             try? PDFTableContent(content: "________________ \(mentorName)"),
-            try? PDFTableContent(content: "«___» _____________ \(year) г.")
+            try? PDFTableContent(content: "\(date) \(year) г.")
         ]
         bossNames[column: 0].allCellsAlignment = .center
         bossNames[column: 0].allCellsStyle = StyleLibrary.style
@@ -55,7 +55,7 @@ extension DocsCommon {
             try? PDFTableContent(content: "УТВЕРЖДАЮ"),
             try? PDFTableContent(content: "Академический руководитель образовательной программы «Программная инженерия»\nпрофессор департамента программной инженерии, канд. техн. наук"),
             try? PDFTableContent(content: "________________ В.В. Шилов"),
-            try? PDFTableContent(content: "«___» _____________ \(year) г.")
+            try? PDFTableContent(content: "\(date) \(year) г.")
         ]
         bossNames[column: 1].allCellsAlignment = .center
         bossNames[column: 1].allCellsStyle = StyleLibrary.style
@@ -63,8 +63,21 @@ extension DocsCommon {
         document.add(table: bossNames)
     }
     
-    private func setupTable(document: PDFDocument) {
-        // table-troublemaker...
+    func setupTable(document: PDFDocument) {
+        let table = PDFTable(rows: 5, columns: 2)
+        table.widths = [1.0]
+        
+        table[column: 0].content = [
+            try? PDFTableContent(content: "Подп. и дата"),
+            try? PDFTableContent(content: "Инв. № дубл."),
+            try? PDFTableContent(content: "Взам. инв. №"),
+            try? PDFTableContent(content: "Подп. и дата"),
+            try? PDFTableContent(content: "Инв. № подл.")
+        ]
+        table[column: 0].allCellsAlignment = .center
+        table[column: 0].allCellsStyle = StyleLibrary.styleBold
+        
+        document.add(.contentLeft, table: table)
     }
     
     private func setupTopic(document: PDFDocument, type: DocumentType) {
@@ -108,7 +121,7 @@ extension DocsCommon {
             try? PDFTableContent(content: "Исполнитель"),
             try? PDFTableContent(content: "студент группы \(group)"),
             try? PDFTableContent(content: "________________ \(performerName)"),
-            try? PDFTableContent(content: "«___» _____________ \(year) г.")
+            try? PDFTableContent(content: "\(date) \(year) г.")
         ]
         performer[column: 0].allCellsAlignment = .right
         performer[column: 0].allCellsStyle = StyleLibrary.style
@@ -121,9 +134,9 @@ extension DocsCommon {
         year.widths = [1.0]
         
         year[column: 0].content = [
-            try? PDFTableContent(content: "\n\n\n\n\n"),
-            try? PDFTableContent(content: "\n\n\n\n\n"),
-            try? PDFTableContent(content: "\n\n\n\n\n"),
+            try? PDFTableContent(content: "\n\n\n\n\n\n\n"),
+            try? PDFTableContent(content: "\n\n\n\n\n\n\n"),
+            try? PDFTableContent(content: "\n\n\n\n\n\n\n"),
             try? PDFTableContent(content: "\(city) \(self.year)")
         ]
         year[column: 0].allCellsAlignment = .center
@@ -175,7 +188,7 @@ extension DocsCommon {
             try? PDFTableContent(content: docTypeName),
             try? PDFTableContent(content: codifier),
             try? PDFTableContent(content: "Листов x"),
-            try? PDFTableContent(content: "\n")
+            try? PDFTableContent(content: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         ]
         column2.allCellsAlignment = .center
         column2.allCellsStyle = StyleLibrary.styleBold

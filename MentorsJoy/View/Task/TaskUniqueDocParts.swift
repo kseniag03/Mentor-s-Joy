@@ -14,10 +14,10 @@ extension DocsTask {
         common.setupPageHeader1(document: document, title: "ВВЕДЕНИЕ", "1.\t")
         
         common.setupPageHeader2(document: document, title: "Наименование программы", number: "1.1.")
-        
         common.setupSimpleText(document: document, text: "\tНаименование темы разработки – «\(common.projectName)»\n" + "\tНаименование темы разработки на английском языке – «\(common.projectNameEng)»")
         
         common.setupPageHeader2(document: document, title: "Краткая характеристика области применения программы", number: "1.2.")
+        common.setupSimpleText(document: document, text: common.shortDecription)
     }
     
     func setupReasons(document: PDFDocument) {
@@ -104,7 +104,7 @@ extension DocsTask {
         
         // MARK: Define number of repository
         
-        common.setupSimpleText(document: document, text: "Хранение программного продукта совместно с документацией выполняется в репозитории GitHub [?]. Программа в электронном виде может храниться и транспортироваться на USB-носителе, съёмном SSD или HDD диске, а также в облачном хранилище.")
+        common.setupSimpleText(document: document, text: "\tХранение программного продукта совместно с документацией выполняется в репозитории GitHub [?]. Программа в электронном виде может храниться и транспортироваться на USB-носителе, съёмном SSD или HDD диске, а также в облачном хранилище.")
         
         common.setupPageHeader2(document: document, title: "Специальные требования", number: "4.9.")
         

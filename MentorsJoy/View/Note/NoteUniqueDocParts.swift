@@ -29,6 +29,7 @@ extension DocsNote {
         
         // add short description too
         common.setupPageHeader2(document: document, title: "Краткая характеристика области применения программы", number: "2.3.")
+        common.setupSimpleText(document: document, text: common.shortDecription)
     }
     
     func setupDevelopmentProcess(document: PDFDocument, _ specialReqs : [String] = []) {

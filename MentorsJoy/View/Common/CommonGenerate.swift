@@ -11,13 +11,13 @@ extension DocsCommon {
     
     func setupView() {
         print("SETUP DOC LAUNCHED")
+        
         titles.background.color = .systemGray6
         doc.background.color = .systemGray6
         lrc.background.color = .systemGray6
         
-        // get definite doc using type from vc picker !!!!!!
-        
         let docsList = [titles, doc, lrc]
+        
         guard let url = getPDFDoc(documents: docsList) else { return }
         
         // MARK: somehow handle url of this file...
@@ -25,8 +25,16 @@ extension DocsCommon {
     
     private func getPDFDoc(documents: [PDFDocument]) -> URL? {
         
+        let file = "example-\(fileName).pdf"
+
         let generator = PDFMultiDocumentGenerator(documents: documents)
-        let url = try? generator.generateURL(filename: "example-\(fileName).pdf")
+        //url = try? generator.generateURL(filename: file)
+        
+        do {
+            url = try generator.generateURL(filename: file)
+        } catch {
+            print("Error generating URL: \(error)")
+        }
         
         print("url: \(String(describing: url))")
         

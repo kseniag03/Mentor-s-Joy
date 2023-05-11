@@ -14,8 +14,10 @@ extension DocsCommon {
         setupPageHeader1(document: document, title: "НАЗНАЧЕНИЕ РАЗРАБОТКИ", "\(sectionNum).\t")
         
         setupPageHeader2(document: document, title: "Функциональное назначение", number: "\(sectionNum).1.")
+        setupSimpleText(document: document, text: functionPurpose)
         
         setupPageHeader2(document: document, title: "Эксплуатационное назначение", number: "\(sectionNum).2.")
+        setupSimpleText(document: document, text: exploitPurpose)
     }
     
     func setupDocumentation(document: PDFDocument, sectionNum: Int) {

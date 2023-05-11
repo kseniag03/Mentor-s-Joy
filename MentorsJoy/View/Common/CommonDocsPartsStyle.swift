@@ -16,6 +16,18 @@ extension DocsCommon {
     
     func setupDocBeginBeforeAnnotation() {
         print("!!!  CRAFT TASK LAUNCHED  !!!")
+        
+        // MARK: check if URL is alredy exist
+        
+        if (url == nil) {
+            print("there is no doc URL, now generate new")
+        } else {
+            print("there is alredy existing URL, need to clear docs")
+            titles = PDFDocument(format: .a4)
+            doc = PDFDocument(format: .a4)
+            lrc = PDFDocument(format: .a4)
+        }
+        
         setupTitle(document: titles, type: .task)
         addNewPage(document: titles)
         setupLU(document: titles, type: .task)
@@ -96,7 +108,7 @@ extension DocsCommon {
         // MARK: footer does not want to add table as... I don't know
         
         document.add(.headerCenter, table: table) // to see table
-        document.add(.footerLeft, table: table) // ???????? need to fix...
+        document.add(.footerLeft, table: table) // as this does not pin...
 
         let font = UIFont(descriptor: UIFontDescriptor(name: "TimesNewRomanPS-BoldMT", size: 12.0), size: 12.0)
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
@@ -137,21 +149,26 @@ extension DocsCommon {
     }
     
     func setupNumericList(document: PDFDocument, list: [String]) {
-        let table = PDFTable(rows: list.count, columns: 1)
+        let table = PDFTable(rows: list.count + 1, columns: 1)
         for i in 0..<list.count {
             let content = "\t\(i + 1).\t" + list[i]
             table[i, 0].content = try? PDFTableContent(content: content)
-            table[i, 0].style = StyleLibrary.style
+            //table[i, 0].style = StyleLibrary.style
         }
+        table[list.count, 0].content = try? PDFTableContent(content: "\n")
         table[column: 0].allCellsAlignment = .left
+        table[column: 0].allCellsStyle = StyleLibrary.style
         document.add(.contentLeft, table: table)
     }
     
     func setupSimpleText(document: PDFDocument, text: String) {
-        let table = PDFTable(rows: 1, columns: 1)
-        table[0, 0].content = try? PDFTableContent(content: text)
-        table[0, 0].alignment = .left
-        table[0, 0].style = StyleLibrary.style
+        let table = PDFTable(rows: 2, columns: 1)
+        table[column: 0].content = [
+            try? PDFTableContent(content: text),
+            try? PDFTableContent(content: "\n")
+        ]
+        table[column: 0].allCellsAlignment = .left
+        table[column: 0].allCellsStyle = StyleLibrary.style
         document.add(.contentLeft, table: table)
     }
 }

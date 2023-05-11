@@ -9,6 +9,8 @@ import UIKit
 class PDF {
     
     static let pdf = PDFViewController()
+    
+    static let vc = TabBarViewController()
 }
 
 class ViewController: UIViewController {
@@ -66,8 +68,7 @@ class ViewController: UIViewController {
     
     @objc
     private func inputTableButtonPressed(_ sender: Any) {
-        let vc = TabBarViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(PDF.vc, animated: true)
     }
 }
 
