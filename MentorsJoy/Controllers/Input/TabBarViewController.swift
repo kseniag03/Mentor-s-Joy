@@ -10,13 +10,13 @@ final class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .systemPink
+        tabBar.unselectedItemTintColor = .white
+
         setUpController()
     }
     
     private func setUpController() {
-        
-        //guard let currentUserEmail = UserDefaults.standard.string(forKey: "email") else { return }
         
         let common = CommonInputViewController()
         common.title = "Общее"
@@ -66,7 +66,7 @@ final class TabBarViewController: UITabBarController {
             animated: true)
         
         guard let items = tabBar.items else { return }
-        let images = [ "house.fill", "magnifyingglass", "mic.fill", "person.circle.fill", "mic.fill", "house"]
+        let images = [ "doc.fill", "doc.text", "doc.text.below.ecg", "chart.bar.doc.horizontal", "doc.text.magnifyingglass", "doc.badge.gearshape"]
         for i in 0..<items.count {
             items[i].image = UIImage(systemName: images[i])
         }

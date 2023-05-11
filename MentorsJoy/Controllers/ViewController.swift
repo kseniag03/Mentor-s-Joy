@@ -6,11 +6,18 @@
 import TPPDF
 import UIKit
 
+class PDF {
+    
+    static let pdf = PDFViewController()
+}
+
 class ViewController: UIViewController {
     
     private var currentDocType = DocumentType.task
     
     private let picker = UIPickerView()
+    
+    //let pdf = PDFViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +60,8 @@ class ViewController: UIViewController {
 
     @objc
     private func openPDFButtonPressed(_ sender: Any) {
-        let pdf = PDFViewController()
-        pdf.generate(type: currentDocType)
-        navigationController?.pushViewController(pdf, animated: true)
+        PDF.pdf.generate(type: currentDocType)
+        navigationController?.pushViewController(PDF.pdf, animated: true)
     }
     
     @objc

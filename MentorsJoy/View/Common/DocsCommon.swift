@@ -41,7 +41,7 @@ class DocsCommon {
     var performerName = "ФИО"
     var mentorName = "ФИО"
     var year = "2023"
-    var date = ""
+    var date = "«___» _____________"
     var codifier = "RU.17701729.XX.XX-01 X 01-1"
     var group = "GROUP"
     var city = "Москва"

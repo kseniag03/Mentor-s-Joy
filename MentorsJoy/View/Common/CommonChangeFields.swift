@@ -5,7 +5,7 @@
 
 // MARK: change fields values using user's input
 
-protocol ChangeFieldsValue {
+protocol ChangeDocFieldsValue {
     
     func setupPerformerName(name: String)
     
@@ -13,9 +13,9 @@ protocol ChangeFieldsValue {
     
     func setupYear(year: String)
     
-    func setupDate(year: String)
+    func setupDate(date: String)
     
-    func setupCodifier(code: String, type: DocumentType)
+    func setupCodifier(code: String)
     
     func setupGroup(group: String)
     
@@ -38,14 +38,7 @@ protocol ChangeFieldsValue {
     func addSourceListItem(item: String)
 }
 
-extension DocsCommon {//}: ChangeFieldsValue {
-    
-    /*
-
-     var year = "2023"
-     var date = ""
-     
-     */
+extension DocsCommon {
     
     func setupPerformerName(name: String) {
         self.performerName = name
@@ -59,8 +52,8 @@ extension DocsCommon {//}: ChangeFieldsValue {
         self.year = year
     }
     
-    func setupDate(year: String) {
-        self.date = year
+    func setupDate(date: String) {
+        self.date = date
     }
     
     func setupCodifier(code: String, type: DocumentType) {
