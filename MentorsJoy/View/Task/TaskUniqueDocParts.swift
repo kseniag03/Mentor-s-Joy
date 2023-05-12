@@ -33,58 +33,47 @@ extension DocsTask {
         common.setupPurposes(document: document, sectionNum: 3)
     }
     
-    func setupFunctionality(document: PDFDocument, _ specialReqs : [String] = []) {
+    func setupFunctionality(document: PDFDocument) {
         
         common.setupPageHeader1(document: document, title: "ТРЕБОВАНИЯ К ПРОГРАММЕ", "4.\t")
-        
         
         common.setupPageHeader2(document: document, title: "Требования к функциональным характеристикам", number: "4.1.")
         
         common.setupPageHeader3(document: document, title: "Требования к составу выполняемых функций", number: "4.1.1.")
-        
-        // MARK: here must be list!!!!!!!
+        common.setupNumericList(document: document, list: functionality)
         
         common.setupPageHeader3(document: document, title: "Требования к организации входных данных", number: "4.1.2.")
-        
-        // MARK: here must be list!!!!!!!
+        common.setupNumericList(document: document, list: input)
         
         common.setupPageHeader3(document: document, title: "Требования к организации выходных данных", number: "4.1.3.")
-        
-        // MARK: here must be list!!!!!!!
+        common.setupNumericList(document: document, list: output)
         
         common.setupPageHeader2(document: document, title: "Требования к надежности", number: "4.2.")
         
         common.setupPageHeader3(document: document, title: "Требования к обеспечению надежного (устойчивого) функционирования программы", number: "4.2.1.")
-        
-        // MARK: add list!!
+        common.setupNumericList(document: document, list: safety)
         
         common.setupPageHeader3(document: document, title: "Время восстановления после отказа", number: "4.2.2.")
         
         common.setupSimpleText(document: document, text: "\tВремя восстановления программы не должно превышать времени перезагрузки операционной системы или времени устранения технических неполадок.")
         
         common.setupPageHeader2(document: document, title: "Требования к интерфейсу", number: "4.3.")
-        
-        // MARK: here must be list!!!!!!!
+        common.setupNumericList(document: document, list: interface)
         
         common.setupPageHeader2(document: document, title: "Условия эксплуатации", number: "4.4.")
         
         common.setupPageHeader3(document: document, title: "Климатические условия эксплуатации", number: "4.4.1.")
-        
         common.setupSimpleText(document: document, text: "\tКлиматические условия эксплуатации, при которых программа обязана выполнять весь функционал, должны удовлетворять требованиям, предъявляемым к смартфонам в части условий их эксплуатации.\n" + "\tУстройство предназначено для работы в закрытом отапливаемом помещении со стабильными климатическими условиями категории согласно ГОСТ 15150-69 [1].")
         
         common.setupPageHeader3(document: document, title: "Требования к видам обслуживания", number: "4.4.2.")
-        
-        // MARK: define more universal reqs
-        
         common.setupSimpleText(document: document, text: "\tНа устройстве, где производится эксплуатация программы, необходимо обеспечить регулярную проверку оборудования и программного обеспечения на наличие неполадок. Обеспечить защиту устройства от воздействия вредоносных программ.\n" + "\tЕсли в программе возникли непредвиденные неполадки, то рекомендуется написать разработчику на адрес электронной почты, указанный в всплывающем окне «Помощь», и сообщить о них. Разработчик обязан принять меры по устранению неполадок и обновить программу, уведомив пользователя.")
         
         common.setupPageHeader2(document: document, title: "Требования к составу и параметрам технических средств", number: "4.5.")
-        
-        // MARK: here must be list!!!
+        common.setupSimpleText(document: document, text: "\tДля работы программы необходим следующий состав технических средств:\n")
+        common.setupNumericList(document: document, list: hardware)
         
         common.setupPageHeader2(document: document, title: "Требования к информационной и программной совместимости", number: "4.6.")
-        
-        // MARK: here must be list!!!
+        common.setupNumericList(document: document, list: software)
         
         common.setupPageHeader2(document: document, title: "Требования к маркировке и упаковке", number: "4.7.")
         
@@ -95,16 +84,11 @@ extension DocsTask {
         common.setupPageHeader3(document: document, title: "Требования к хранению и транспортировке программных документов, предоставляемых в печатном виде", number: "4.8.1.")
         
         common.setupSimpleText(document: document, text: "\tТребования к транспортировке и хранению программных документов являются стандартными и должны соответствовать общим требованиям хранения и транспортировки печатной продукции:")
-        
-        // list of reqs
-        
-        // MARK: here!!!!
+        common.setupNumericList(document: document, list: moveReqs)
         
         common.setupPageHeader3(document: document, title: "Требования к хранению и транспортировке программного продукта", number: "4.8.2.")
         
-        // MARK: Define number of repository
-        
-        common.setupSimpleText(document: document, text: "\tХранение программного продукта совместно с документацией выполняется в репозитории GitHub [?]. Программа в электронном виде может храниться и транспортироваться на USB-носителе, съёмном SSD или HDD диске, а также в облачном хранилище.")
+        common.setupSimpleText(document: document, text: "\tХранение программного продукта совместно с документацией выполняется в репозитории GitHub. Программа в электронном виде может храниться и транспортироваться на USB-носителе, съёмном SSD или HDD диске, а также в облачном хранилище.")
         
         common.setupPageHeader2(document: document, title: "Специальные требования", number: "4.9.")
         
@@ -121,10 +105,10 @@ extension DocsTask {
         common.setupDocumentation(document: document, sectionNum: 5)
     }
     
-    func setupTechnoEconomy(document: PDFDocument, _ rivals : [String] = [], _ advantages : [String] = [], _ efficiency : [String] = []) {
+    func setupTechnoEconomy(document: PDFDocument) {
         
         // setup with sections number 6
-        common.setupTechnoEconomy(document: document, sectionNum: 6, rivals, advantages, efficiency)
+        common.setupTechnoEconomy(document: document, sectionNum: 6)
     }
     
     func setupStages(document: PDFDocument) {
@@ -134,12 +118,14 @@ extension DocsTask {
         common.setupPageHeader2(document: document, title: "Необходимые стадии разработки, этапы, содержание работ и сроки выполнения", number: "7.1.")
         
         common.setupSimpleText(document: document, text: "\tСтадии, этапы разработки и содержание работ выявлены с учетом ГОСТ 19.102-77 [3].")
+        let deadlines = Array(repeating: "xx.xx.xxxx-xx.xx.xxxx", count: 18)
+        setupStagesTable1(document: document, deadlines: customDeadlines.count == 18 ? customDeadlines : deadlines)
+        common.addNewPage(document: document)
+        setupStagesTable2(document: document, deadlines: customDeadlines.count == 18 ? customDeadlines : deadlines)
         
-        // MARK: Do not forget to add table!!!
+        common.setupPageHeader2(document: document, title: "\nСрок разработки конечного продукта", number: "7.2.")
         
-        common.setupPageHeader2(document: document, title: "Срок разработки конечного продукта", number: "7.2.")
-        
-        common.setupSimpleText(document: document, text: "\tПрограммный продукт (программа и документация) должен быть завершен не позднее утвержденного приказом декана ФКН НИУ ВШЭ срока защиты курсовой работы.\n" + "\tИсполнитель – студент группы GROUP, ФИО.")
+        common.setupSimpleText(document: document, text: "\tПрограммный продукт (программа и документация) должен быть завершен не позднее утвержденного приказом декана ФКН НИУ ВШЭ срока защиты курсовой работы.\n" + "\tИсполнитель – студент группы \(common.group), \(common.performerName).")
 
     }
     
@@ -177,5 +163,128 @@ extension DocsTask {
         "\t6.\tГОСТ 19.106-78 Требования к программным документам, выполненным печатным способом [7].\n" +
         "\t7.\tГОСТ 19.201-78 Техническое задание. Требования к содержанию и оформлению [8].\n" +
         "\tИзменения к Техническому заданию оформляются согласно ГОСТ 19.603-78 [14], ГОСТ 19.604-78 [15]."
+    }
+    
+    private func setupStagesTable1(document: PDFDocument, deadlines: [String]) {
+        
+        let table = PDFTable(rows: 10, columns: 4)
+        for row in 0..<table.rows.rows.count {
+            for col in 0..<table.columns.columns.count {
+                let cell = table[row, col]
+                cell.content = try? PDFTableContent(content: " ")
+                cell.alignment = .left
+                cell.style = StyleLibrary.tableStyle
+            }
+        }
+        
+        table[row: 0].content = [
+            try? PDFTableContent(content: "Стадии разработки"),
+            try? PDFTableContent(content: "Этапы разработки"),
+            try? PDFTableContent(content: "Содержание работ"),
+            try? PDFTableContent(content: "Сроки выполнения"),
+        ]
+        
+        // MARK: column with stages
+        
+        table[1, 0].content = try? PDFTableContent(content: "Техническое задание")
+        var merged = table[rows: 1...9, column: 0]
+        merged.merge()
+        
+        // MARK: column with stages' phases
+        
+        table[1, 1].content = try? PDFTableContent(content: "Обоснование необходимости разработки программы")
+        table[3, 1].content = try? PDFTableContent(content: "Научно-исследовательские работы")
+        table[6, 1].content = try? PDFTableContent(content: "Разработка и утверждение технического задания")
+        merged = table[rows: 1...2, column: 1]
+        merged.merge()
+        merged = table[rows: 3...5, column: 1]
+        merged.merge()
+        merged = table[rows: 6...9, column: 1]
+        merged.merge()
+        
+        // MARK: column with stages' phases' tasks
+        
+        table[column: 2].content = [
+            try? PDFTableContent(content: "Содержание работ"),
+            try? PDFTableContent(content: "Постановка задачи"),
+            try? PDFTableContent(content: "Сбор исходных материалов"),
+            try? PDFTableContent(content: "Определение структуры входных и выходных данных"),
+            try? PDFTableContent(content: "Определение требований к техническим средствам"),
+            try? PDFTableContent(content: "Обоснование принципиальной возможности решения поставленной задачи"),
+            try? PDFTableContent(content: "Обоснование принципиальной возможности решения поставленной задачи"),
+            try? PDFTableContent(content: "Обоснование принципиальной возможности решения поставленной задачи"),
+            try? PDFTableContent(content: "Выбор языка программирования"),
+            try? PDFTableContent(content: "Согласование и утверждение технического задания")
+        ]
+        
+        // MARK: fill deadlines dates
+        
+        for i in 1..<10 {
+            table[i, 3].content = try? PDFTableContent(content: deadlines[i])
+        }
+        
+        document.add(.contentLeft, table: table)
+    }
+    
+    private func setupStagesTable2(document: PDFDocument, deadlines: [String]) {
+        
+        let table = PDFTable(rows: 9, columns: 4)
+        for row in 0..<table.rows.rows.count {
+            for col in 0..<table.columns.columns.count {
+                let cell = table[row, col]
+                cell.content = try? PDFTableContent(content: " ")
+                cell.alignment = .left
+                cell.style = StyleLibrary.tableStyle
+            }
+        }
+        
+        table[row: 0].content = [
+            try? PDFTableContent(content: "Стадии разработки"),
+            try? PDFTableContent(content: "Этапы разработки"),
+            try? PDFTableContent(content: "Содержание работ"),
+            try? PDFTableContent(content: "Сроки выполнения"),
+        ]
+        
+        // MARK: column with stages
+        
+        table[1, 0].content = try? PDFTableContent(content: "Рабочий проект")
+        table[6, 0].content = try? PDFTableContent(content: "Внедрение")
+        var merged = table[rows: 1...5, column: 0]
+        merged.merge()
+        merged = table[rows: 6...8, column: 0]
+        merged.merge()
+        
+        // MARK: column with stages' phases
+        
+        table[1, 1].content = try? PDFTableContent(content: "Разработка программы")
+        table[2, 1].content = try? PDFTableContent(content: "Разработка программной документации")
+        table[3, 1].content = try? PDFTableContent(content: "Испытания программы")
+        table[6, 1].content = try? PDFTableContent(content: "Подготовка, защита и передача программы")
+        merged = table[rows: 3...5, column: 1]
+        merged.merge()
+        merged = table[rows: 6...8, column: 1]
+        merged.merge()
+        
+        // MARK: column with stages' phases' tasks
+        
+        table[column: 2].content = [
+            try? PDFTableContent(content: "Содержание работ"),
+            try? PDFTableContent(content: "Программирование и отладка программы"),
+            try? PDFTableContent(content: "Разработка программных документов в соответствии с требованиями ГОСТ 19.101-77 [2]."),
+            try? PDFTableContent(content: "Разработка, согласование и утверждение программы и методики испытаний"),
+            try? PDFTableContent(content: "Проведение предварительного тестирования базового функционала"),
+            try? PDFTableContent(content: "Корректировка программы и программной документации по результатам тестирования"),
+            try? PDFTableContent(content: "Подготовка и передача программы и программной документации для сопровождения"),
+            try? PDFTableContent(content: "Подготовка и передача презентации программного продукта"),
+            try? PDFTableContent(content: "Защита проекта")
+        ]
+        
+        // MARK: fill deadlines dates
+        
+        for i in 1..<9 {
+            table[i, 3].content = try? PDFTableContent(content: deadlines[i + 9])
+        }
+        
+        document.add(.contentLeft, table: table)
     }
 }

@@ -71,7 +71,7 @@ extension PDFViewController: GenerateDoc {
     }
 }
 
-extension PDFViewController: ChangeDocFieldsValue {
+extension PDFViewController: ChangeCommonFields {
     
     func setupPerformerName(name: String) {
         allDocuments.forEach { doc in
@@ -151,6 +151,31 @@ extension PDFViewController: ChangeDocFieldsValue {
         }
     }
     
+    func setupNeed(need: String) {
+        allDocuments[0].setupNeed(need: need)
+        allDocuments[1].setupNeed(need: need)
+    }
+    
+    func setupKillerFeature(feature: String) {
+        allDocuments[0].setupKillerFeature(feature: feature)
+        allDocuments[1].setupKillerFeature(feature: feature)
+    }
+    
+    func addEfficiencyItem(item: String) {
+        allDocuments[0].addEfficiencyItem(item: item)
+        allDocuments[1].addEfficiencyItem(item: item)
+    }
+    
+    func addRivalItem(item: String) {
+        allDocuments[0].addRivalItem(item: item)
+        allDocuments[1].addRivalItem(item: item)
+    }
+    
+    func addAdvantageItem(item: String) {
+        allDocuments[0].addAdvantageItem(item: item)
+        allDocuments[1].addAdvantageItem(item: item)
+    }
+    
     func addGlossaryDictItem(key: String, value: String) {
         allDocuments.forEach { doc in
             doc.addGlossaryDictItem(key: key, value: value)
@@ -162,7 +187,43 @@ extension PDFViewController: ChangeDocFieldsValue {
             doc.addSourceListItem(item: item)
         }
     }
+}
+
+extension PDFViewController: ChangeTaskFields {
     
+    func setupDeadlines(deadlines: [String]) {
+        Docs.shared.task.setupDeadlines(deadlines: deadlines)
+    }
     
+    func addFuncItem(item: String) {
+        Docs.shared.task.addFuncItem(item: item)
+    }
     
+    func addInputItem(item: String) {
+        Docs.shared.task.addInputItem(item: item)
+    }
+    
+    func addOutputItem(item: String) {
+        Docs.shared.task.addOutputItem(item: item)
+    }
+    
+    func addSafetyItem(item: String) {
+        Docs.shared.task.addSafetyItem(item: item)
+    }
+    
+    func addInterfaceItem(item: String) {
+        Docs.shared.task.addInterfaceItem(item: item)
+    }
+    
+    func addHardwareItem(item: String) {
+        Docs.shared.task.addHardwareItem(item: item)
+    }
+    
+    func addSoftwareItem(item: String) {
+        Docs.shared.task.addSoftwareItem(item: item)
+    }
+    
+    func addSpecialItem(item: String) {
+        Docs.shared.task.addSpecialItem(item: item)
+    }
 }

@@ -27,23 +27,17 @@ extension DocsCommon {
         setupPageHeader2(document: document, title: "Состав программной документации", number: "\(sectionNum).1.")
         
         var docs: [String] = []
-        for doc in DocsCommon().docs {
+        for doc in self.docs {
             let new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
             docs.append(new)
         }
         setupNumericList(document: document, list: docs)
         
         setupPageHeader2(document: document, title: "Специальные требования к программной документации", number: "\(sectionNum).2.")
-        
-        docs.removeAll()
-        for doc in DocsCommon().docsReqs {
-            let new = doc.replacingOccurrences(of: "PROJECT-NAME", with: projectName)
-            docs.append(new)
-        }
-        setupNumericList(document: document, list: docs)
+        setupNumericList(document: document, list: docsReqs)
     }
     
-    func setupTechnoEconomy(document: PDFDocument, sectionNum: Int, _ rivals : [String] = [], _ advantages : [String] = [], _ efficiency : [String] = []) {
+    func setupTechnoEconomy(document: PDFDocument, sectionNum: Int) {
         
         setupPageHeader1(document: document, title: "ТЕХНИКО­-ЭКОНОМИЧЕСКИЕ ПОКАЗАТЕЛИ", "\(sectionNum).\t")
         
@@ -56,23 +50,13 @@ extension DocsCommon {
         }
         
         setupPageHeader2(document: document, title: "Предполагаемая потребность", number: "\(sectionNum).2.")
-        
-        // insert text
+        setupSimpleText(document: document, text: "\t\(need)")
         
         setupPageHeader2(document: document, title: "Экономические преимущества разработки по сравнению с отечественными и зарубежными образцами или аналогами", number: "\(sectionNum).3.")
-        
-        // insert list of rivals apps
-        
-        if (rivals.count > 0) {
-            setupNumericList(document: document, list: rivals)
-        }
-        
-        // insert list of project advantages
-        
-        if (advantages.count > 0) {
-            setupNumericList(document: document, list: advantages)
-        }
-        
-        // insert line about killer-feature
+        setupSimpleText(document: document, text: "\tПоиск в сети Интернет на момент создания приложения выявил несколько его аналогов")
+        setupNumericList(document: document, list: rivals)
+        setupSimpleText(document: document, text: "\tРазрабатываемая программа:")
+        setupNumericList(document: document, list: advantages)
+        setupSimpleText(document: document, text: "\tГлавной особенностью программного продукта является \(killerFeature)")
     }
 }

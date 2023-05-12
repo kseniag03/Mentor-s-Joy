@@ -58,10 +58,10 @@ extension DocsNote {
         common.setupPageHeader2(document: document, title: "Описание и обоснование выбора состава технических и программных средств", number: "3.4.")
     }
     
-    func setupTechnoEconomy(document: PDFDocument, _ rivals : [String] = [], _ advantages : [String] = [], _ efficiency : [String] = []) {
+    func setupTechnoEconomy(document: PDFDocument) {
         
         // setup with sections number 4
-        common.setupTechnoEconomy(document: document, sectionNum: 4, rivals, advantages, efficiency)
+        common.setupTechnoEconomy(document: document, sectionNum: 4)
     }
     
     func getAnnotation(projectTopic: String, projectName: String, _ shortDescription : String = "") -> String {

@@ -3,41 +3,6 @@
 //  MentorsJoy
 //
 
-// MARK: change fields values using user's input
-
-protocol ChangeDocFieldsValue {
-    
-    func setupPerformerName(name: String)
-    
-    func setupMentorName(name: String)
-    
-    func setupYear(year: String)
-    
-    func setupDate(date: String)
-    
-    func setupCodifier(code: String)
-    
-    func setupGroup(group: String)
-    
-    func setupCity(city: String)
-    
-    func setupProjectTopic(topic: String)
-    
-    func setupProjectName(name: String)
-    
-    func setupProjectNameEng(nameEng: String)
-    
-    func setupShortDecription(description: String)
-    
-    func setupFunctionPurpose(purpose: String)
-    
-    func setupExploitPurpose(purpose: String)
-    
-    func addGlossaryDictItem(key: String, value: String)
-    
-    func addSourceListItem(item: String)
-}
-
 extension DocsCommon {
     
     func setupPerformerName(name: String) {
@@ -105,6 +70,26 @@ extension DocsCommon {
         self.exploitPurpose = purpose
     }
     
+    func setupNeed(need: String) {
+        self.need = need
+    }
+    
+    func setupKillerFeature(feature: String) {
+        self.killerFeature = feature
+    }
+    
+    func addEfficiencyItem(item: String) {
+        self.efficiency.append(item)
+    }
+    
+    func addRivalItem(item: String) {
+        self.rivals.append(item)
+    }
+    
+    func addAdvantageItem(item: String) {
+        self.advantages.append(item)
+    }
+    
     func addGlossaryDictItem(key: String, value: String) {
         self.glossaryList[key] = value
         let sortedDict = Dictionary(
@@ -117,6 +102,6 @@ extension DocsCommon {
     
     func addSourceListItem(item: String) {
         self.sourceList.append(item)
-        self.sourceList = self.sourceList.sorted()
+        self.sourceList = Array(self.sourceList[0..<15]) + self.sourceList[15...].sorted { $0 < $1 }
     }
 }

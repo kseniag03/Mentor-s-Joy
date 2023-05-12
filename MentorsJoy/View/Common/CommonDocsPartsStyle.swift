@@ -15,6 +15,7 @@ extension DocsCommon {
     }
     
     func setupDocBeginBeforeAnnotation() {
+        
         print("!!!  CRAFT TASK LAUNCHED  !!!")
         
         // MARK: check if URL is alredy exist
@@ -36,7 +37,9 @@ extension DocsCommon {
     }
     
     func setupDocBeginAfterAnnotation() {
+        
         addNewPage(document: doc)
+        
         // MARK: add if-cond: if d is empty, do not add glossary at document
         if glossaryList.count > 0 {
             setupGlossary(document: doc, glossaryList)
@@ -45,6 +48,7 @@ extension DocsCommon {
     }
     
     func setupDocEnd() {
+        
         addNewPage(document: doc)
         setupSourcesList(document: doc)
         pageNum += 1
@@ -105,7 +109,7 @@ extension DocsCommon {
         
         table[rows: 0...3].allCellsAlignment = .center
         
-        // MARK: footer does not want to add table as... I don't know
+        // MARK: footer does not want to add table as... I don't know why
         
         document.add(.headerCenter, table: table) // to see table
         document.add(.footerLeft, table: table) // as this does not pin...
@@ -119,8 +123,7 @@ extension DocsCommon {
     
     func setupPageHeader1(document: PDFDocument, title: String, _ number: String = "") {
         let header = PDFTable(rows: 2, columns: 1)
-        header[0, 0].content = try? PDFTableContent(content: /*"\(section).\t"*/ number + title)
-        //section += 1
+        header[0, 0].content = try? PDFTableContent(content: number + title)
         header[1, 0].content = try? PDFTableContent(content: "\n")
         header[column: 0].allCellsAlignment = .center
         header[0, 0].style = StyleLibrary.styleBold

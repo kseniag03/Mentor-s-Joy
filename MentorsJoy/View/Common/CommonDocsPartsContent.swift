@@ -32,8 +32,9 @@ extension DocsCommon {
         ]
         
         uniName[column: 0].allCellsAlignment = .center
+        uniName[column: 0].allCellsStyle = StyleLibrary.style
         uniName[rows: 0...3].allCellsStyle = StyleLibrary.styleBold
-        uniName[rows: 4...5].allCellsStyle = StyleLibrary.style
+        //uniName[rows: 4...5].allCellsStyle = StyleLibrary.style
         
         document.add(table: uniName)
     }
@@ -187,7 +188,7 @@ extension DocsCommon {
             try? PDFTableContent(content: projectTopic),
             try? PDFTableContent(content: docTypeName),
             try? PDFTableContent(content: codifier),
-            try? PDFTableContent(content: "Листов x"),
+            try? PDFTableContent(content: "Листов x\n\n\n\n"),
             try? PDFTableContent(content: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         ]
         column2.allCellsAlignment = .center

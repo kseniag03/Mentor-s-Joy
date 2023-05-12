@@ -17,6 +17,9 @@
 		1C386D6D297003E700831C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C386D6B297003E700831C08 /* LaunchScreen.storyboard */; };
 		1C386D752970064B00831C08 /* PinLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D742970064B00831C08 /* PinLibrary.swift */; };
 		1C386D772970071900831C08 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D762970071900831C08 /* PDFViewController.swift */; };
+		1C9C2F072A0D922C00CF74DC /* TextConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C2F062A0D922C00CF74DC /* TextConst.swift */; };
+		1C9C2F092A0DB1BB00CF74DC /* ChangeCommonFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C2F082A0DB1BB00CF74DC /* ChangeCommonFields.swift */; };
+		1C9C2F0B2A0DB89700CF74DC /* TaskChangeFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C2F0A2A0DB89700CF74DC /* TaskChangeFields.swift */; };
 		1CD1A6492A0ABEB400BF96FC /* DocsProgramm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6482A0ABEB400BF96FC /* DocsProgramm.swift */; };
 		1CD1A64B2A0ABEDC00BF96FC /* DocsManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A64A2A0ABEDC00BF96FC /* DocsManual.swift */; };
 		1CD1A64D2A0ABEF700BF96FC /* DocsTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A64C2A0ABEF700BF96FC /* DocsTesting.swift */; };
@@ -58,6 +61,9 @@
 		1C386D6E297003E700831C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C386D742970064B00831C08 /* PinLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLibrary.swift; sourceTree = "<group>"; };
 		1C386D762970071900831C08 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		1C9C2F062A0D922C00CF74DC /* TextConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConst.swift; sourceTree = "<group>"; };
+		1C9C2F082A0DB1BB00CF74DC /* ChangeCommonFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCommonFields.swift; sourceTree = "<group>"; };
+		1C9C2F0A2A0DB89700CF74DC /* TaskChangeFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChangeFields.swift; sourceTree = "<group>"; };
 		1CD1A6482A0ABEB400BF96FC /* DocsProgramm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsProgramm.swift; sourceTree = "<group>"; };
 		1CD1A64A2A0ABEDC00BF96FC /* DocsManual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsManual.swift; sourceTree = "<group>"; };
 		1CD1A64C2A0ABEF700BF96FC /* DocsTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsTesting.swift; sourceTree = "<group>"; };
@@ -146,11 +152,13 @@
 		1CD1A6462A0AADFB00BF96FC /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				1C9C2F082A0DB1BB00CF74DC /* ChangeCommonFields.swift */,
 				1C3172572A0AAC4B003E4FA8 /* DocumentType.swift */,
 				1CD1A6562A0B056800BF96FC /* DocsSettings.swift */,
 				1CD1A6582A0B059D00BF96FC /* GenerateDoc.swift */,
 				1C386D742970064B00831C08 /* PinLibrary.swift */,
 				1CD1A6542A0B020500BF96FC /* StyleLibrary.swift */,
+				1C9C2F062A0D922C00CF74DC /* TextConst.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1CD1A6502A0ABF3700BF96FC /* DocsTask.swift */,
+				1C9C2F0A2A0DB89700CF74DC /* TaskChangeFields.swift */,
 				1CD1A66A2A0B08BC00BF96FC /* TaskUniqueDocParts.swift */,
 			);
 			path = Task;
@@ -380,6 +389,8 @@
 				1C3172522A0AA171003E4FA8 /* CommonInputViewController.swift in Sources */,
 				1CD1A6512A0ABF3700BF96FC /* DocsTask.swift in Sources */,
 				1CD1A66B2A0B08BC00BF96FC /* TaskUniqueDocParts.swift in Sources */,
+				1C9C2F072A0D922C00CF74DC /* TextConst.swift in Sources */,
+				1C9C2F0B2A0DB89700CF74DC /* TaskChangeFields.swift in Sources */,
 				1CD1A64D2A0ABEF700BF96FC /* DocsTesting.swift in Sources */,
 				1CD1A67F2A0B0CFD00BF96FC /* ManualInputViewController.swift in Sources */,
 				1CD1A6732A0B090E00BF96FC /* ProgrammUniqueDocParts.swift in Sources */,
@@ -390,6 +401,7 @@
 				1CD1A6572A0B056800BF96FC /* DocsSettings.swift in Sources */,
 				1C386D772970071900831C08 /* PDFViewController.swift in Sources */,
 				1CD1A6492A0ABEB400BF96FC /* DocsProgramm.swift in Sources */,
+				1C9C2F092A0DB1BB00CF74DC /* ChangeCommonFields.swift in Sources */,
 				1C386D65297003E300831C08 /* ViewController.swift in Sources */,
 				1CD1A65E2A0B06C500BF96FC /* CommonGenerate.swift in Sources */,
 				1C386D61297003E300831C08 /* AppDelegate.swift in Sources */,
