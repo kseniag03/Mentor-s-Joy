@@ -20,7 +20,7 @@ class TestingInputViewController: CommonInputViewController {
     private func setupView() {
         self.view.backgroundColor = .systemPurple
         tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }

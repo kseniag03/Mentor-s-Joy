@@ -176,9 +176,9 @@ extension PDFViewController: ChangeCommonFields {
         allDocuments[1].addAdvantageItem(item: item)
     }
     
-    func addGlossaryDictItem(key: String, value: String) {
+    func addGlossaryDictItem(item: String) {
         allDocuments.forEach { doc in
-            doc.addGlossaryDictItem(key: key, value: value)
+            doc.addGlossaryDictItem(item: item)
         }
     }
     

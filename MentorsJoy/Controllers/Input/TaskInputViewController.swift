@@ -23,7 +23,7 @@ class TaskInputViewController: UIViewController {
         self.view.backgroundColor = .systemPink
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }
@@ -31,11 +31,11 @@ class TaskInputViewController: UIViewController {
 extension TaskInputViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        return UITableViewCell()
     }
     
 }

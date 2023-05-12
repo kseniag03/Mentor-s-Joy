@@ -39,7 +39,7 @@
 		1CD1A66F2A0B08E400BF96FC /* TestingUniqueDocParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A66E2A0B08E400BF96FC /* TestingUniqueDocParts.swift */; };
 		1CD1A6712A0B08F900BF96FC /* ManualUniqueDocParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6702A0B08F900BF96FC /* ManualUniqueDocParts.swift */; };
 		1CD1A6732A0B090E00BF96FC /* ProgrammUniqueDocParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6722A0B090E00BF96FC /* ProgrammUniqueDocParts.swift */; };
-		1CD1A6752A0B0BCB00BF96FC /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6742A0B0BCB00BF96FC /* TextFieldTableViewCell.swift */; };
+		1CD1A6752A0B0BCB00BF96FC /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6742A0B0BCB00BF96FC /* TextFieldCell.swift */; };
 		1CD1A6772A0B0C6300BF96FC /* TaskInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6762A0B0C6300BF96FC /* TaskInputViewController.swift */; };
 		1CD1A6792A0B0C8C00BF96FC /* TestingInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A6782A0B0C8C00BF96FC /* TestingInputViewController.swift */; };
 		1CD1A67B2A0B0CAF00BF96FC /* ProgrammInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A67A2A0B0CAF00BF96FC /* ProgrammInputViewController.swift */; };
@@ -83,7 +83,7 @@
 		1CD1A66E2A0B08E400BF96FC /* TestingUniqueDocParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingUniqueDocParts.swift; sourceTree = "<group>"; };
 		1CD1A6702A0B08F900BF96FC /* ManualUniqueDocParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualUniqueDocParts.swift; sourceTree = "<group>"; };
 		1CD1A6722A0B090E00BF96FC /* ProgrammUniqueDocParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammUniqueDocParts.swift; sourceTree = "<group>"; };
-		1CD1A6742A0B0BCB00BF96FC /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1CD1A6742A0B0BCB00BF96FC /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		1CD1A6762A0B0C6300BF96FC /* TaskInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInputViewController.swift; sourceTree = "<group>"; };
 		1CD1A6782A0B0C8C00BF96FC /* TestingInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingInputViewController.swift; sourceTree = "<group>"; };
 		1CD1A67A2A0B0CAF00BF96FC /* ProgrammInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammInputViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		1CD1A6472A0AAE0B00BF96FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1A6742A0B0BCB00BF96FC /* TextFieldTableViewCell.swift */,
+				1CD1A6742A0B0BCB00BF96FC /* TextFieldCell.swift */,
 				1CD1A65A2A0B063A00BF96FC /* Common */,
 				1CD1A6652A0B082C00BF96FC /* Task */,
 				1CD1A6662A0B083200BF96FC /* Note */,
@@ -410,7 +410,7 @@
 				1CD1A65C2A0B069100BF96FC /* CommonChangeFields.swift in Sources */,
 				1CD1A6792A0B0C8C00BF96FC /* TestingInputViewController.swift in Sources */,
 				1CD1A6622A0B074200BF96FC /* CommonDocsPartsContent.swift in Sources */,
-				1CD1A6752A0B0BCB00BF96FC /* TextFieldTableViewCell.swift in Sources */,
+				1CD1A6752A0B0BCB00BF96FC /* TextFieldCell.swift in Sources */,
 				1CD1A6712A0B08F900BF96FC /* ManualUniqueDocParts.swift in Sources */,
 				1CD1A6772A0B0C6300BF96FC /* TaskInputViewController.swift in Sources */,
 				1CD1A64F2A0ABF1900BF96FC /* DocsNote.swift in Sources */,

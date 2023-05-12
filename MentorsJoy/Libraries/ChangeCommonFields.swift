@@ -26,7 +26,7 @@ protocol ChangeCommonFields {
     func addEfficiencyItem(item: String)
     func addRivalItem(item: String)
     func addAdvantageItem(item: String)
-    func addGlossaryDictItem(key: String, value: String)
+    func addGlossaryDictItem(item: String)
     func addSourceListItem(item: String)
 }
 

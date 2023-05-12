@@ -47,7 +47,7 @@ class DocsCommon {
     var advantages: [String] = []
     var killerFeature = "особенная фишка"
 
-    var glossaryList: [String: String] = [:]
+    var glossaryList: [String] = []
     var sourceList: [String] = []
     
     var pageNum = 1

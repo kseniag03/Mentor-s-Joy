@@ -28,7 +28,9 @@ class TextConst {
         8: Fragment(name: "Группа (название группы)", action: PDF.pdf.setupGroup),
         10: Fragment(name: "Краткая характеристика области применения", action: PDF.pdf.setupShortDecription),
         11: Fragment(name: "Функциональное назначение", action: PDF.pdf.setupFunctionPurpose),
-        12: Fragment(name: "Эксплуатационное назначение", action: PDF.pdf.setupExploitPurpose)
+        12: Fragment(name: "Эксплуатационное назначение", action: PDF.pdf.setupExploitPurpose),
+        
+        13: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem)
     ]
     
     // glossary + sources
@@ -48,7 +50,31 @@ class TextConst {
         12: Fragment(name: "", action: PDF.pdf.setupExploitPurpose)*/
     ]
     
+    static let months: [Int: String] = [
+        1: "января",
+        2: "февраля",
+        3: "марта",
+        4: "апреля",
+        5: "мая",
+        6: "июня",
+        7: "июля",
+        8: "августа",
+        9: "сентября",
+        10: "октября",
+        11: "ноября",
+        12: "декабря"
+    ]
+    
     // a lot of lists
+    
+    
+    static func getText(i: Int) -> String {
+        return TextConst.texts[i]?.name ?? ""
+    }
+    
+    static func getMonth(i: Int) -> String {
+        return TextConst.months[i] ?? "\(i)"
+    }
 }
 
 /*

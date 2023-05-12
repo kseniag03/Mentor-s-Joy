@@ -212,10 +212,11 @@ extension DocsCommon {
         document.add(.contentLeft, table: annotation)
     }
     
-    func setupGlossary(document: PDFDocument, _ dict: [String : String] = [:]) {
+    func setupGlossary(document: PDFDocument, _ dict: [String] = []) {
         
         setupPageHeader1(document: document, title: "ГЛОССАРИЙ")
         
+        /*
         var size = 0
         var list: [String] = []
         
@@ -236,9 +237,11 @@ extension DocsCommon {
             table[i, 0].content = try? PDFTableContent(content: "\t" + list[i])
             table[i, 0].style = StyleLibrary.style
             table[i, 0].alignment = .left
-        }
+        }*/
         
-        document.add(.contentLeft, table: table)
+        setupNumericList(document: document, list: dict)
+        
+        //document.add(.contentLeft, table: table)
     }
     
     func setupSourcesList(document: PDFDocument, _ sourcesList : [String?] = []) {

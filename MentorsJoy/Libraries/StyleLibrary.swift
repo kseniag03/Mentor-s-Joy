@@ -10,6 +10,13 @@ import UIKit
 
 class StyleLibrary {
     
+    static let timesFont = UIFont(
+        descriptor: UIFontDescriptor(
+            name: "TimesNewRomanPSMT", size: 12.0
+        ),
+        size: 12.0
+    )
+    
     static let style = PDFTableCellStyle(
         colors: (fill: .clear, text: .black),
         borders: .none,
@@ -57,4 +64,22 @@ class StyleLibrary {
             ),
             size: 12.0)
     )
+    
+    static func setupButton(button: UIButton, title : String, view: UIView, constY: CGFloat,
+                             _ backColor: UIColor = .systemRed, _ fontColor: UIColor = .white) {
+        // Edit an empty button
+        button.backgroundColor = backColor
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(fontColor, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        
+        // Center the button horizontally and vertically
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constY),
+            button.widthAnchor.constraint(equalToConstant: 150),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
 }

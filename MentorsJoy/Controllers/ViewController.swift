@@ -32,31 +32,13 @@ class ViewController: UIViewController {
         setupPicker()
     }
     
-    private func setupButton(button: UIButton, title : String, constY: CGFloat,
-                             _ backColor: UIColor = .systemRed, _ fontColor: UIColor = .white) {
-        // Edit an empty button
-        button.backgroundColor = backColor
-        button.setTitle(title, for: .normal)
-        button.setTitleColor(fontColor, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(button)
-        
-        // Center the button horizontally and vertically
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: constY),
-            button.widthAnchor.constraint(equalToConstant: 150),
-            button.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
-    
     private func setupButtons() {
         let generateButton = UIButton()
-        setupButton(button: generateButton, title: "GENERATE", constY: 30)
+        StyleLibrary.setupButton(button: generateButton, title: "GENERATE", view: self.view, constY: 30)
         generateButton.addTarget(self, action: #selector(openPDFButtonPressed), for: .touchUpInside)
 
         let inputButton = UIButton()
-        setupButton(button: inputButton, title: "INPUT", constY: -30, .systemBlue)
+        StyleLibrary.setupButton(button: inputButton, title: "INPUT", view: self.view, constY: -30, .systemBlue)
         inputButton.addTarget(self, action: #selector(inputTableButtonPressed), for: .touchUpInside)
     }
 

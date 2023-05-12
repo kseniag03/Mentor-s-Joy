@@ -19,7 +19,7 @@ class ManualInputViewController: CommonInputViewController {
     private func setupView() {
         self.view.backgroundColor = .systemMint
         tableView.dataSource = self
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }
