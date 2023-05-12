@@ -5,7 +5,9 @@
 
 import UIKit
 
-class TaskInputViewController: CommonInputViewController {
+class TaskInputViewController: UIViewController {
+    
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,20 @@ class TaskInputViewController: CommonInputViewController {
     private func setupView() {
         self.view.backgroundColor = .systemPink
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
+}
+
+extension TaskInputViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
 }

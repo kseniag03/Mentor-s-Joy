@@ -31,11 +31,13 @@ class TextConst {
         12: Fragment(name: "Эксплуатационное назначение", action: PDF.pdf.setupExploitPurpose)
     ]
     
+    // glossary + sources
+    
     static let taskTexts: [Int: Fragment] = [
         0: Fragment(name: "Время восстановления после отказа", action: PDF.pdf.setupPerformerName),
         1: Fragment(name: "Ориентировочная экономическая эффективность", action: PDF.pdf.setupMentorName),
         2: Fragment(name: "Предполагаемая потребность", action: PDF.pdf.setupYear),
-        3: Fragment(name: "", action: PDF.pdf.setupDate),
+        /*3: Fragment(name: "", action: PDF.pdf.setupDate),
         4: Fragment(name: "", action: PDF.pdf.setupProjectTopic),
         5: Fragment(name: "", action: PDF.pdf.setupProjectName),
         6: Fragment(name: "", action: PDF.pdf.setupProjectNameEng),
@@ -43,8 +45,10 @@ class TextConst {
         8: Fragment(name: "", action: PDF.pdf.setupGroup),
         10: Fragment(name: "", action: PDF.pdf.setupShortDecription),
         11: Fragment(name: "", action: PDF.pdf.setupFunctionPurpose),
-        12: Fragment(name: "", action: PDF.pdf.setupExploitPurpose)
+        12: Fragment(name: "", action: PDF.pdf.setupExploitPurpose)*/
     ]
+    
+    // a lot of lists
 }
 
 /*
@@ -66,4 +70,6 @@ class TextConst {
  Требования к интерфейсу
  Требования к составу и параметрам технических средств
  Специальные требования
+ 
+ deadlines develop stages
  */

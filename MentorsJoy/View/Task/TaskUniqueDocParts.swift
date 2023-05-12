@@ -123,7 +123,7 @@ extension DocsTask {
         common.addNewPage(document: document)
         setupStagesTable2(document: document, deadlines: customDeadlines.count == 18 ? customDeadlines : deadlines)
         
-        common.setupPageHeader2(document: document, title: "\nСрок разработки конечного продукта", number: "7.2.")
+        common.setupPageHeader2(document: document, title: "Срок разработки конечного продукта", number: "7.2.")
         
         common.setupSimpleText(document: document, text: "\tПрограммный продукт (программа и документация) должен быть завершен не позднее утвержденного приказом декана ФКН НИУ ВШЭ срока защиты курсовой работы.\n" + "\tИсполнитель – студент группы \(common.group), \(common.performerName).")
 

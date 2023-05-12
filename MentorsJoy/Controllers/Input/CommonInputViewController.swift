@@ -28,6 +28,7 @@ class CommonInputViewController: UIViewController {
     private func setupView() {
         self.view.backgroundColor = .systemGray6
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
