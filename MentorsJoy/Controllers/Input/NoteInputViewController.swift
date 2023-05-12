@@ -5,7 +5,9 @@
 
 import UIKit
 
-class NoteInputViewController: CommonInputViewController {
+class NoteInputViewController: UIViewController {
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +20,9 @@ class NoteInputViewController: CommonInputViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemCyan
-        tableView.dataSource = self
-        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
+        self.view.backgroundColor = .systemGray6
+        //tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }

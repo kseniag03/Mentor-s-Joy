@@ -105,6 +105,6 @@ extension DocsCommon {
     
     func addSourceListItem(item: String) {
         self.sourceList.append(item)
-        self.sourceList = Array(self.sourceList[0..<15]) + self.sourceList[15...].sorted { $0 < $1 }
+        self.sourceList = self.sourceList.sorted()
     }
 }

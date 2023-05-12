@@ -17,6 +17,20 @@ class StyleLibrary {
         size: 12.0
     )
     
+    static let timesFont16 = UIFont(
+        descriptor: UIFontDescriptor(
+            name: "TimesNewRomanPSMT", size: 16.0
+        ),
+        size: 16.0
+    )
+    
+    static let timesFont20 = UIFont(
+        descriptor: UIFontDescriptor(
+            name: "TimesNewRomanPSMT", size: 20.0
+        ),
+        size: 20.0
+    )
+    
     static let style = PDFTableCellStyle(
         colors: (fill: .clear, text: .black),
         borders: .none,

@@ -30,7 +30,16 @@ class TextConst {
         11: Fragment(name: "Функциональное назначение", action: PDF.pdf.setupFunctionPurpose),
         12: Fragment(name: "Эксплуатационное назначение", action: PDF.pdf.setupExploitPurpose),
         
-        13: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem)
+        13: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem),
+        14: Fragment(name: "Источники", action: PDF.pdf.addSourceListItem),
+        
+        15: Fragment(name: "Экономическая эффективность", action: PDF.pdf.addEfficiencyItem),
+        16: Fragment(name: "Аналоги", action: PDF.pdf.addRivalItem),
+        17: Fragment(name: "Преимущества", action: PDF.pdf.addAdvantageItem)//,
+        /*18: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem),
+        19: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem),
+        20: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem),
+        21: Fragment(name: "Глоссарий", action: PDF.pdf.addGlossaryDictItem)*/
     ]
     
     // glossary + sources

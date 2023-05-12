@@ -5,7 +5,10 @@
 
 import UIKit
 
-class ManualInputViewController: CommonInputViewController {
+class ManualInputViewController: UIViewController {
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -17,9 +20,9 @@ class ManualInputViewController: CommonInputViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemMint
-        tableView.dataSource = self
-        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
+        self.view.backgroundColor = .systemGray6
+        //tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }

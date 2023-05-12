@@ -5,7 +5,9 @@
 
 import UIKit
 
-class TestingInputViewController: CommonInputViewController {
+class TestingInputViewController: UIViewController {
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +20,9 @@ class TestingInputViewController: CommonInputViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemPurple
-        tableView.dataSource = self
-        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
+        self.view.backgroundColor = .systemGray6
+        //tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }

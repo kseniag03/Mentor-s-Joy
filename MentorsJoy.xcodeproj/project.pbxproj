@@ -17,6 +17,10 @@
 		1C386D6D297003E700831C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C386D6B297003E700831C08 /* LaunchScreen.storyboard */; };
 		1C386D752970064B00831C08 /* PinLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D742970064B00831C08 /* PinLibrary.swift */; };
 		1C386D772970071900831C08 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C386D762970071900831C08 /* PDFViewController.swift */; };
+		1C6675C52A0E960A00C7E3A1 /* ListInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6675C42A0E960A00C7E3A1 /* ListInputViewController.swift */; };
+		1C6675C72A0E977C00C7E3A1 /* AddListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6675C62A0E977C00C7E3A1 /* AddListItemCell.swift */; };
+		1C6675C92A0E9ED200C7E3A1 /* TextLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6675C82A0E9ED200C7E3A1 /* TextLabelCell.swift */; };
+		1C6675CB2A0EA0E300C7E3A1 /* AddListItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6675CA2A0EA0E300C7E3A1 /* AddListItemDelegate.swift */; };
 		1C9C2F072A0D922C00CF74DC /* TextConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C2F062A0D922C00CF74DC /* TextConst.swift */; };
 		1C9C2F092A0DB1BB00CF74DC /* ChangeCommonFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C2F082A0DB1BB00CF74DC /* ChangeCommonFields.swift */; };
 		1C9C2F0B2A0DB89700CF74DC /* TaskChangeFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C2F0A2A0DB89700CF74DC /* TaskChangeFields.swift */; };
@@ -61,6 +65,10 @@
 		1C386D6E297003E700831C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C386D742970064B00831C08 /* PinLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLibrary.swift; sourceTree = "<group>"; };
 		1C386D762970071900831C08 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		1C6675C42A0E960A00C7E3A1 /* ListInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInputViewController.swift; sourceTree = "<group>"; };
+		1C6675C62A0E977C00C7E3A1 /* AddListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListItemCell.swift; sourceTree = "<group>"; };
+		1C6675C82A0E9ED200C7E3A1 /* TextLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelCell.swift; sourceTree = "<group>"; };
+		1C6675CA2A0EA0E300C7E3A1 /* AddListItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListItemDelegate.swift; sourceTree = "<group>"; };
 		1C9C2F062A0D922C00CF74DC /* TextConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConst.swift; sourceTree = "<group>"; };
 		1C9C2F082A0DB1BB00CF74DC /* ChangeCommonFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCommonFields.swift; sourceTree = "<group>"; };
 		1C9C2F0A2A0DB89700CF74DC /* TaskChangeFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChangeFields.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 				1C9C2F082A0DB1BB00CF74DC /* ChangeCommonFields.swift */,
 				1C3172572A0AAC4B003E4FA8 /* DocumentType.swift */,
 				1CD1A6562A0B056800BF96FC /* DocsSettings.swift */,
+				1C6675CA2A0EA0E300C7E3A1 /* AddListItemDelegate.swift */,
 				1CD1A6582A0B059D00BF96FC /* GenerateDoc.swift */,
 				1C386D742970064B00831C08 /* PinLibrary.swift */,
 				1CD1A6542A0B020500BF96FC /* StyleLibrary.swift */,
@@ -167,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				1CD1A6742A0B0BCB00BF96FC /* TextFieldCell.swift */,
+				1C6675C82A0E9ED200C7E3A1 /* TextLabelCell.swift */,
+				1C6675C62A0E977C00C7E3A1 /* AddListItemCell.swift */,
 				1CD1A65A2A0B063A00BF96FC /* Common */,
 				1CD1A6652A0B082C00BF96FC /* Task */,
 				1CD1A6662A0B083200BF96FC /* Note */,
@@ -241,6 +252,7 @@
 			children = (
 				1C3172532A0AA18A003E4FA8 /* TabBarViewController.swift */,
 				1C3172512A0AA171003E4FA8 /* CommonInputViewController.swift */,
+				1C6675C42A0E960A00C7E3A1 /* ListInputViewController.swift */,
 				1CD1A6762A0B0C6300BF96FC /* TaskInputViewController.swift */,
 				1CD1A67C2A0B0CD000BF96FC /* NoteInputViewController.swift */,
 				1CD1A6782A0B0C8C00BF96FC /* TestingInputViewController.swift */,
@@ -385,6 +397,7 @@
 				1CD1A66F2A0B08E400BF96FC /* TestingUniqueDocParts.swift in Sources */,
 				1C3172582A0AAC4B003E4FA8 /* DocumentType.swift in Sources */,
 				1CD1A64B2A0ABEDC00BF96FC /* DocsManual.swift in Sources */,
+				1C6675C52A0E960A00C7E3A1 /* ListInputViewController.swift in Sources */,
 				1CD1A6532A0ABF7A00BF96FC /* DocsCommon.swift in Sources */,
 				1C3172522A0AA171003E4FA8 /* CommonInputViewController.swift in Sources */,
 				1CD1A6512A0ABF3700BF96FC /* DocsTask.swift in Sources */,
@@ -393,6 +406,7 @@
 				1C9C2F0B2A0DB89700CF74DC /* TaskChangeFields.swift in Sources */,
 				1CD1A64D2A0ABEF700BF96FC /* DocsTesting.swift in Sources */,
 				1CD1A67F2A0B0CFD00BF96FC /* ManualInputViewController.swift in Sources */,
+				1C6675C92A0E9ED200C7E3A1 /* TextLabelCell.swift in Sources */,
 				1CD1A6732A0B090E00BF96FC /* ProgrammUniqueDocParts.swift in Sources */,
 				1CD1A67B2A0B0CAF00BF96FC /* ProgrammInputViewController.swift in Sources */,
 				1CD1A6602A0B06FE00BF96FC /* CommonDocsPartsStyle.swift in Sources */,
@@ -406,6 +420,7 @@
 				1CD1A65E2A0B06C500BF96FC /* CommonGenerate.swift in Sources */,
 				1C386D61297003E300831C08 /* AppDelegate.swift in Sources */,
 				1C386D63297003E300831C08 /* SceneDelegate.swift in Sources */,
+				1C6675C72A0E977C00C7E3A1 /* AddListItemCell.swift in Sources */,
 				1C3172542A0AA18A003E4FA8 /* TabBarViewController.swift in Sources */,
 				1CD1A65C2A0B069100BF96FC /* CommonChangeFields.swift in Sources */,
 				1CD1A6792A0B0C8C00BF96FC /* TestingInputViewController.swift in Sources */,
@@ -413,6 +428,7 @@
 				1CD1A6752A0B0BCB00BF96FC /* TextFieldCell.swift in Sources */,
 				1CD1A6712A0B08F900BF96FC /* ManualUniqueDocParts.swift in Sources */,
 				1CD1A6772A0B0C6300BF96FC /* TaskInputViewController.swift in Sources */,
+				1C6675CB2A0EA0E300C7E3A1 /* AddListItemDelegate.swift in Sources */,
 				1CD1A64F2A0ABF1900BF96FC /* DocsNote.swift in Sources */,
 				1CD1A67D2A0B0CD000BF96FC /* NoteInputViewController.swift in Sources */,
 				1CD1A6642A0B07A100BF96FC /* CommonRelatedFunctionality.swift in Sources */,

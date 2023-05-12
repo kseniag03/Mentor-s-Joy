@@ -5,7 +5,9 @@
 
 import UIKit
 
-class ProgrammInputViewController: CommonInputViewController {
+class ProgrammInputViewController: UIViewController {
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +20,9 @@ class ProgrammInputViewController: CommonInputViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemYellow
-        tableView.dataSource = self
-        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
+        self.view.backgroundColor = .systemGray6
+        //tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }

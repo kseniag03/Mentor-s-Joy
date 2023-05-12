@@ -244,13 +244,13 @@ extension DocsCommon {
         //document.add(.contentLeft, table: table)
     }
     
-    func setupSourcesList(document: PDFDocument, _ sourcesList : [String?] = []) {
+    func setupSourcesList(document: PDFDocument) {
         
         setupPageHeader1(document: document, title: "СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ")
         
         let gost = DocsCommon().gost
         
-        let table = PDFTable(rows: gost.count + sourcesList.count, columns: 1)
+        let table = PDFTable(rows: gost.count + sourceList.count, columns: 1)
         
         for i in 0..<gost.count {
             let content = "\t\(i + 1).\t" + gost[i]
@@ -258,12 +258,12 @@ extension DocsCommon {
             table[i, 0].style = StyleLibrary.style
         }
         
-        for i in 0..<sourcesList.count {
+        for i in 0..<sourceList.count {
             let j = i + gost.count
             if (j >= 40) {
                 break
             }
-            guard let string = sourcesList[i] else { continue }
+            let string = sourceList[i]
             let content = "\t\(j).\t" + string
             table[j, 0].content = try? PDFTableContent(content: content)
             table[j, 0].style = StyleLibrary.style

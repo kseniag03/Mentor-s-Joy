@@ -140,6 +140,20 @@ extension UIView {
     }
     
     @discardableResult
+    func setHeight(_ const: CGFloat = 0) -> NSLayoutConstraint {
+        let constraint = heightAnchor.constraint(equalToConstant: const)
+        constraint.isActive = true
+        return constraint
+    }
+    
+    @discardableResult
+    func setWidth(_ const: CGFloat = 0) -> NSLayoutConstraint {
+        let constraint = widthAnchor.constraint(equalToConstant: const)
+        constraint.isActive = true
+        return constraint
+    }
+    
+    @discardableResult
     func pinCenterX(to superview: UIView, _ const: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerXAnchor.constraint(

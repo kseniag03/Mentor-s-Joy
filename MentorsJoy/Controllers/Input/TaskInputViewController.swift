@@ -20,10 +20,10 @@ class TaskInputViewController: UIViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .systemPink
+        self.view.backgroundColor = .systemGray6
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(TextFieldCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
     }
 }

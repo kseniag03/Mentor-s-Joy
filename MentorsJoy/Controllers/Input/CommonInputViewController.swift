@@ -5,216 +5,9 @@
 
 import UIKit
 
-/*
-protocol CellDelegate {
-    func cellValueDidChange(_ cell: UITableViewCell)
-}
- 
- func addEfficiencyItem(item: String)
- func addRivalItem(item: String)
- func addAdvantageItem(item: String)
- func addGlossaryDictItem(key: String, value: String)
- func addSourceListItem(item: String)
- 
- 
- func addFuncItem(item: String)
- func addInputItem(item: String)
- func addOutputItem(item: String)
- func addSafetyItem(item: String)
- func addInterfaceItem(item: String)
- func addHardwareItem(item: String)
- func addSoftwareItem(item: String)
- func addSpecialItem(item: String)
- 
- */
-
-class ListControllers {
-    
-    static let sources = ListInputViewController()
-    static let glossary = ListInputViewController()
-    
-    static let efficiency = ListInputViewController()
-    static let rivals = ListInputViewController()
-    static let advantages = ListInputViewController()
-    
-    static let functionality = ListInputViewController()
-    static let input = ListInputViewController()
-    static let output = ListInputViewController()
-    static let safety = ListInputViewController()
-    static let interface = ListInputViewController()
-    static let hardware = ListInputViewController()
-    static let software = ListInputViewController()
-    static let special = ListInputViewController()
-    
-    static let vc: [Int: (String, ListInputViewController)] = [
-        13: ("Глоссарий", glossary),
-        14: ("Источники", sources),
-        
-        15: ("Эконом. эффект.", efficiency),
-        16: ("Аналоги", rivals),
-        17: ("Преимущества", advantages)//,
-        
-        // in task
-        /*
-        0: ("Функционал", functionality),
-        1: ("Входные данные", input),
-        2: ("Выходные данные", output),
-        
-        3: ("Надёжность", safety),
-        4: ("Интерфейс", interface),
-        5: ("Технические парам.", hardware),
-        6: ("Программная совм.", software),
-        7: ("Спец.", special)*.*/
-    ]
-    
-}
-
-class CustomButton: UIButton {
-    var i: Int = 0
-}
-
-class ListInputViewController: UIViewController {
-    
-    private let tableView = UITableView()
-    
-    private var tableTitle: String = "Table"
-    
-    private var num: Int = 0
-    
-    private var data: [String] = []
-    
-    //private var dataDict: [String:String] = [:]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
-    }
-    
-    func setupTitle(tableTitle: String) {
-        self.tableTitle = tableTitle
-    }
-    
-    func setupNum(num: Int) {
-        self.num = num
-    }
-    
-    /*
-    func setupList(data: [String]) {
-        self.data = data
-    }
-    
-    func setupDict(data: [String:String]) {
-        self.dataDict = data
-    }*/
-    
-    private func setupView() {
-        print("starting setup list input vc...")
-        self.view.backgroundColor = .systemGray6
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseIdentifier)
-        tableView.register(AddListItemCell.self, forCellReuseIdentifier: AddListItemCell.reuseIdentifier)
-        
-        print("tableView has been registered")
-        
-        let label = UILabel()
-        label.text = tableTitle
-        label.textAlignment = .center
-        label.font = StyleLibrary.timesFont
-        label.textColor = .systemTeal
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-        
-        print("before constraint")
-/*
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            tableView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])*/
-        
-        print("after constraint")
-        
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        self.view.addSubview(tableView)
-    }
-}
-
-extension ListInputViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
-            return data.count
-        }
-        //return data.count + 1 // or dataDict?
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.section {
-        case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: AddListItemCell.reuseIdentifier, for: indexPath) as? AddListItemCell {
-                cell.delegate = self
-                return cell
-            }
-        default:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.reuseIdentifier, for: indexPath) as? TextFieldCell {
-                //cell.textField.placeholder = TextConst.getText(i: indexPath.row)
-                //cell.delegate = self
-                return cell
-            }
-        }
-        return UITableViewCell()
-    }
-    
-}
-
-extension ListInputViewController: AddListItemDelegate {
-    
-    func newListItem(item: String) {
-        data.append(item)
-        // add in pdf data
-        guard let change = TextConst.texts[num] else { return }
-        change.action(item)
-    }
-}
-
 class CommonInputViewController: UIViewController {
     
-    let tableView = UITableView()
-    /*
-    let tableView1 = UITableView()
-    let tableView2 = UITableView()
-    let tableView3 = UITableView()
-    let tableView4 = UITableView()
-    let tableView5 = UITableView()
-    
-    var efficiencyData: [String] = []
-    var rivalsData: [String] = []
-    var advantagesData: [String] = []
-    var sourceData: [String] = []
-    var glossaryData: [String:String] = [:]*/
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -224,13 +17,6 @@ class CommonInputViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = self.view.bounds
-        
-        /*
-        tableView1.frame = self.view.bounds
-        tableView2.frame = self.view.bounds
-        tableView3.frame = self.view.bounds
-        tableView4.frame = self.view.bounds
-        tableView5.frame = self.view.bounds*/
     }
     
     private func setupView() {
@@ -241,40 +27,11 @@ class CommonInputViewController: UIViewController {
         tableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseIdentifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        /*
-        let allTables = [
-            tableView,
-            tableView1,
-            tableView2,
-            tableView3,
-            tableView4,
-            tableView5
-        ]
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100 // estimate the initial height for the cells
+        tableView.keyboardDismissMode = .onDrag
         
-        let label = UILabel()
-        label.text = "Your Text Here"
-        label.textAlignment = .center
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            tableView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        allTables.forEach { table  in
-            table.dataSource = self
-            table.delegate = self
-            table.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "cell")
-            self.view.addSubview(table)
-        }*/
-        
+        tableView.setHeight(self.view.frame.height)
         
         self.view.addSubview(tableView)
     }
@@ -284,17 +41,21 @@ class CommonInputViewController: UIViewController {
 
 extension CommonInputViewController: UITableViewDataSource, UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 50
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.row {
         case 0...2, 4...8, 10...12:
             if let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.reuseIdentifier, for: indexPath) as? TextFieldCell {
+                cell.currentIndex = indexPath.row
                 cell.textField.placeholder = TextConst.getText(i: indexPath.row)
-                //cell.delegate = self
-                //cell.textField.addTarget(self, action: #selector(<#T##@objc method#>), for: .editingChanged)
                 return cell
             }
             break;
