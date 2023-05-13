@@ -6,20 +6,11 @@
 import TPPDF
 import UIKit
 
-class PDF {
-    
-    static let pdf = PDFViewController()
-    
-    static let vc = TabBarViewController()
-}
-
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     private var currentDocType = DocumentType.task
     
     private let picker = UIPickerView()
-    
-    //let pdf = PDFViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()

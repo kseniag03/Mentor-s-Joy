@@ -36,12 +36,7 @@ class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // Get the new text value of the text field
         let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-/*
-        // Get the index path of the cell that contains the text field
-        let tableView = superview as? UITableView
-        currentIndex = tableView?.indexPath(for: self)?.row ?? -1*/
 
-        // Do something with the new text value and the index path
         print("New text value: \(newText ?? ""), indexPath: \(currentIndex)")
         
         if let text = newText {

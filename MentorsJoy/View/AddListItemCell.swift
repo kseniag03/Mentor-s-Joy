@@ -31,7 +31,7 @@ final class AddListItemCell: UITableViewCell, UITextViewDelegate {
     }
 
     private func setupView() {
-        textView.font = StyleLibrary.timesFont16//.systemFont(ofSize: 14, weight: .regular) //
+        textView.font = StyleLibrary.timesFont16
         textView.textColor = .tertiaryLabel
         textView.backgroundColor = .clear
         
@@ -62,7 +62,7 @@ final class AddListItemCell: UITableViewCell, UITextViewDelegate {
         config.baseBackgroundColor = .label
         config.baseForegroundColor = .white
         config.title = "Добавить"
-        config.attributedTitle?.font = StyleLibrary.timesFont20//.systemFont(ofSize: 16, weight: .medium)
+        config.attributedTitle?.font = StyleLibrary.timesFont20
         config.buttonSize = .medium
         config.background.cornerRadius = 12
         return config

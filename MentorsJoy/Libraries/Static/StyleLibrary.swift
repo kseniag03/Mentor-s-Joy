@@ -8,7 +8,7 @@ import UIKit
 
 // MARK: static fields for defining text or table style
 
-class StyleLibrary {
+final class StyleLibrary {
     
     static let timesFont = UIFont(
         descriptor: UIFontDescriptor(

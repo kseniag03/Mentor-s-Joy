@@ -10,6 +10,12 @@ import TPPDF
 final class DocsProgramm {
     
     let common = DocsCommon()
+    
+    var programmingLanguage = "Swift 5.7.1"
+    
+    var developmentEnvironment = "Xcode 14"
+    
+    var frameworks = "UIKit"
 }
 
 extension DocsProgramm: DocsSettings {

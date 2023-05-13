@@ -5,7 +5,7 @@
 
 import UIKit
 
-class CommonInputViewController: UIViewController {
+final class CommonInputViewController: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     

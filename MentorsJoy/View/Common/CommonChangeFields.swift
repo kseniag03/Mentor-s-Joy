@@ -91,14 +91,6 @@ extension DocsCommon {
     }
     
     func addGlossaryDictItem(item: String) {
-        /*
-        self.glossaryList[key] = value
-        let sortedDict = Dictionary(
-            uniqueKeysWithValues: self.glossaryList.sorted(
-                by: { $0.key < $1.key }
-            )
-        )
-        self.glossaryList = sortedDict*/
         self.glossaryList.append(item)
         self.glossaryList = self.glossaryList.sorted()
     }

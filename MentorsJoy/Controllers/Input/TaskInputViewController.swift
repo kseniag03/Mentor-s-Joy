@@ -5,7 +5,7 @@
 
 import UIKit
 
-class TaskInputViewController: UIViewController {
+final class TaskInputViewController: UIViewController {
     
     let tableView = UITableView()
     

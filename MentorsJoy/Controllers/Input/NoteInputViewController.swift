@@ -5,7 +5,7 @@
 
 import UIKit
 
-class NoteInputViewController: UIViewController {
+final class NoteInputViewController: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     

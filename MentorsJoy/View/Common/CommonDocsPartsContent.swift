@@ -34,7 +34,6 @@ extension DocsCommon {
         uniName[column: 0].allCellsAlignment = .center
         uniName[column: 0].allCellsStyle = StyleLibrary.style
         uniName[rows: 0...3].allCellsStyle = StyleLibrary.styleBold
-        //uniName[rows: 4...5].allCellsStyle = StyleLibrary.style
         
         document.add(table: uniName)
     }
@@ -215,33 +214,7 @@ extension DocsCommon {
     func setupGlossary(document: PDFDocument, _ dict: [String] = []) {
         
         setupPageHeader1(document: document, title: "ГЛОССАРИЙ")
-        
-        /*
-        var size = 0
-        var list: [String] = []
-        
-        for p in dict {
-            let term = p.key
-            let description = p.value
-            size += 1
-            list.append(term + " - " + description)
-        }
-        
-        if size == 0 {
-            return
-        }
-
-        let table = PDFTable(rows: size, columns: 1)
-        
-        for i in 0..<size {
-            table[i, 0].content = try? PDFTableContent(content: "\t" + list[i])
-            table[i, 0].style = StyleLibrary.style
-            table[i, 0].alignment = .left
-        }*/
-        
         setupNumericList(document: document, list: dict)
-        
-        //document.add(.contentLeft, table: table)
     }
     
     func setupSourcesList(document: PDFDocument) {

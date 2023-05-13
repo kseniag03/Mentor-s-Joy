@@ -5,7 +5,7 @@
 
 import UIKit
 
-class ManualInputViewController: UIViewController {
+final class ManualInputViewController: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
