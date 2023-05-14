@@ -10,6 +10,22 @@ import TPPDF
 final class DocsTesting {
     
     let common = DocsCommon()
+    
+    var params: [String] = []
+    
+    var tools: [String] = []
+    
+    var order: [String] = []
+    
+    var funcCheck: [String] = []
+    
+    var inputCheck: [String] = []
+    
+    var outputCheck: [String] = []
+    
+    var safetyCheck: [String] = []
+    
+    var interfaceCheck: [String] = []
 }
 
 extension DocsTesting: DocsSettings {
@@ -19,7 +35,10 @@ extension DocsTesting: DocsSettings {
     }
 
     // MARK: - craft doc of definite type (use different methods)
-    func craftDoc() {
+    func craftDoc() -> URL? {
+        
+        common.docType = .testing
+        
         // MARK: launching craft and begin of doc (annotation is crafted separatly)
         common.setupDocBeginBeforeAnnotation()
         setupAnnotation(document: common.doc)
@@ -39,7 +58,7 @@ extension DocsTesting: DocsSettings {
         setupMethods(document: common.doc)
         
         // MARK: end of doc and its full craft
-        common.setupDocEnd()
+        return common.setupDocEnd()
     }
     
     func setupAnnotation(document: PDFDocument) {

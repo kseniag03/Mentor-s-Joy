@@ -10,6 +10,15 @@ import TPPDF
 final class DocsNote {
     
     let common = DocsCommon()
+    
+    var settingTask = "Разрабатываемая программа должна соответствовать требованиям, описанным в настоящем Техническом задании."
+    
+    var essence: [String] = []
+    
+    var putData: [String] = []
+    
+    var toolsJustification = "Такой выбор технических и программных средств обеспечивает красоту."
+    
 }
 
 extension DocsNote: DocsSettings {
@@ -19,7 +28,10 @@ extension DocsNote: DocsSettings {
     }
     
     // MARK: - craft doc of definite type (use different methods)
-    func craftDoc() {
+    func craftDoc() -> URL? {
+        
+        common.docType = .note
+        
         // MARK: launching craft and begin of doc (annotation is crafted separatly)
         common.setupDocBeginBeforeAnnotation()
         setupAnnotation(document: common.doc)
@@ -35,7 +47,7 @@ extension DocsNote: DocsSettings {
         setupTechnoEconomy(document: common.doc)
         
         // MARK: end of doc and its full craft
-        common.setupDocEnd()
+        return common.setupDocEnd()
     }
     
     func setupAnnotation(document: PDFDocument) {

@@ -10,7 +10,7 @@ final class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundColor = .systemPink
+        tabBar.backgroundColor = .systemBlue
         tabBar.unselectedItemTintColor = .white
 
         setUpController()
@@ -18,50 +18,50 @@ final class TabBarViewController: UITabBarController {
     
     private func setUpController() {
         
-        let common = CommonInputViewController()
+        let common = CommonInputViewController(type: .common)
         common.title = "Общее"
         common.navigationItem.largeTitleDisplayMode = .always
         let navCommon = UINavigationController(rootViewController: common)
         navCommon.navigationBar.prefersLargeTitles = true
         
-        let task = TaskInputViewController()
+        let task = CommonInputViewController(type: .task)
         task.title = "ТЗ"
         task.navigationItem.largeTitleDisplayMode = .always
         let navTask = UINavigationController(rootViewController: task)
         navTask.navigationBar.prefersLargeTitles = true
         
-        let testing = TestingInputViewController()
-        testing.title = "ПМИ"
-        testing.navigationItem.largeTitleDisplayMode = .always
-        let navTesting = UINavigationController(rootViewController: testing)
-        navTesting.navigationBar.prefersLargeTitles = true
-        
-        let programm = ProgrammInputViewController()
-        programm.title = "ТП"
-        programm.navigationItem.largeTitleDisplayMode = .always
-        let navProgramm = UINavigationController(rootViewController: programm)
-        navProgramm.navigationBar.prefersLargeTitles = true
-        
-        let note = NoteInputViewController()
+        let note = CommonInputViewController(type: .note)
         note.title = "ПЗ"
         note.navigationItem.largeTitleDisplayMode = .always
         let navNote = UINavigationController(rootViewController: note)
         navNote.navigationBar.prefersLargeTitles = true
         
-        let manual = ManualInputViewController()
+        let testing = CommonInputViewController(type: .testing)
+        testing.title = "ПМИ"
+        testing.navigationItem.largeTitleDisplayMode = .always
+        let navTesting = UINavigationController(rootViewController: testing)
+        navTesting.navigationBar.prefersLargeTitles = true
+        
+        let manual = CommonInputViewController(type: .manual)
         manual.title = "РО"
         manual.navigationItem.largeTitleDisplayMode = .always
         let navManual = UINavigationController(rootViewController: manual)
         navManual.navigationBar.prefersLargeTitles = true
         
+        let programm = CommonInputViewController(type: .programm)
+        programm.title = "ТП"
+        programm.navigationItem.largeTitleDisplayMode = .always
+        let navProgramm = UINavigationController(rootViewController: programm)
+        navProgramm.navigationBar.prefersLargeTitles = true
+        
         setViewControllers(
             [
                 navCommon,
                 navTask,
-                navTesting,
-                navProgramm,
                 navNote,
-                navManual
+                navTesting,
+                navManual,
+                navProgramm
             ],
             animated: true)
         

@@ -5,41 +5,43 @@
 
 final class ListControllers {
     
-    static let sources = ListInputViewController()
-    static let glossary = ListInputViewController()
+    static let default_vc = ListInputViewController(type: .common)
     
-    static let efficiency = ListInputViewController()
-    static let rivals = ListInputViewController()
-    static let advantages = ListInputViewController()
+    static let sources = ListInputViewController(type: .common)
+    static let glossary = ListInputViewController(type: .common)
     
-    static let functionality = ListInputViewController()
-    static let input = ListInputViewController()
-    static let output = ListInputViewController()
-    static let safety = ListInputViewController()
-    static let interface = ListInputViewController()
-    static let hardware = ListInputViewController()
-    static let software = ListInputViewController()
-    static let special = ListInputViewController()
+    static let efficiency = ListInputViewController(type: .common)
+    static let rivals = ListInputViewController(type: .common)
+    static let advantages = ListInputViewController(type: .common)
     
-    static let vc: [Int: (String, ListInputViewController)] = [
-        13: ("Глоссарий", glossary),
-        14: ("Источники", sources),
-        
-        15: ("Эконом. эффект.", efficiency),
-        16: ("Аналоги", rivals),
-        17: ("Преимущества", advantages)//,
-        
-        // in task
-        /*
-        0: ("Функционал", functionality),
-        1: ("Входные данные", input),
-        2: ("Выходные данные", output),
-        
-        3: ("Надёжность", safety),
-        4: ("Интерфейс", interface),
-        5: ("Технические парам.", hardware),
-        6: ("Программная совм.", software),
-        7: ("Спец.", special)*.*/
-    ]
+    static let functionality = ListInputViewController(type: .common)
+    static let input = ListInputViewController(type: .common)
+    static let output = ListInputViewController(type: .common)
+    static let safety = ListInputViewController(type: .common)
+    static let interface = ListInputViewController(type: .common)
+    static let hardware = ListInputViewController(type: .common)
+    static let software = ListInputViewController(type: .common)
     
+    static let special = ListInputViewController(type:.task)
+    static let deadlines = ListInputViewController(type:.task)
+
+    static let put = ListInputViewController(type: .note)
+    static let essence = ListInputViewController(type: .note)
+
+    static let params = ListInputViewController(type: .testing)
+    static let tools = ListInputViewController(type: .testing)
+    static let order = ListInputViewController(type: .testing)
+    static let funcCheck = ListInputViewController(type: .testing)
+    static let inputCheck = ListInputViewController(type: .testing)
+    static let outputCheck = ListInputViewController(type: .testing)
+    static let safetyCheck = ListInputViewController(type: .testing)
+    static let interfaceCheck = ListInputViewController(type: .testing)
+    
+    static let techRequires = ListInputViewController(type: .manual)
+    static let programRequires = ListInputViewController(type: .manual)
+    static let userRequires = ListInputViewController(type: .manual)
+    static let execution = ListInputViewController(type: .manual)
+    static let messages = ListInputViewController(type: .manual)
+    
+    static let links = ListInputViewController(type: .programm)
 }

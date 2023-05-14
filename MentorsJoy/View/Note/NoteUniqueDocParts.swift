@@ -29,7 +29,7 @@ extension DocsNote {
         
         // add short description too
         common.setupPageHeader2(document: document, title: "Краткая характеристика области применения программы", number: "2.3.")
-        common.setupSimpleText(document: document, text: common.shortDecription)
+        common.setupSimpleText(document: document, text: "\t\(common.shortDecription)")
     }
     
     func setupDevelopmentProcess(document: PDFDocument, _ specialReqs : [String] = []) {
@@ -37,25 +37,34 @@ extension DocsNote {
         common.setupPageHeader1(document: document, title: "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ", "3.\t")
         
         common.setupPageHeader2(document: document, title: "Постановка задачи на разработку программы", number: "3.1.")
+        common.setupSimpleText(document: document, text: "\t\(settingTask)")
         
         common.setupPageHeader2(document: document, title: "Описание алгоритма и функционирования программы", number: "3.2.")
+        common.setupNumericList(document: document, list: essence)
         
+        /*
+        // MARK: case when you need to setup titles using user's input is not supported in beta
+         
         common.setupPageHeader3(document: document, title: "Выбор архитектуры проекта", number: "3.2.1.")
-        
-        // MARK: Handle case when you need to setup titles using user's input
         
         common.setupPageHeader3(document: document, title: "SOME TEXT", number: "3.2.2.")
         
         common.setupPageHeader3(document: document, title: "SOME TEXT", number: "3.2.3")
         
-        common.setupPageHeader3(document: document, title: "SOME TEXT", number: "3.2.4.")
+        common.setupPageHeader3(document: document, title: "SOME TEXT", number: "3.2.4.")*/
         
         
         common.setupPageHeader2(document: document, title: "Описание и обоснование выбора метода организации входных и выходных данных", number: "3.3.")
-        
-        // MARK: here must be list!!!!!!!
+        common.setupNumericList(document: document, list: putData)
         
         common.setupPageHeader2(document: document, title: "Описание и обоснование выбора состава технических и программных средств", number: "3.4.")
+        common.setupSimpleText(document: document, text: "Для работы программы необходим следующий состав технических средств:")
+        common.setupNumericList(document: document, list: common.hardware)
+        common.setupSimpleText(document: document, text: "Для работы программы необходим следующий состав программных средств:")
+        common.setupNumericList(document: document, list: common.software)
+        common.setupSimpleText(document: document, text: toolsJustification)
+        
+        //
     }
     
     func setupTechnoEconomy(document: PDFDocument) {

@@ -33,9 +33,9 @@ final class AddListItemCell: UITableViewCell, UITextViewDelegate {
     private func setupView() {
         textView.font = StyleLibrary.timesFont16
         textView.textColor = .tertiaryLabel
-        textView.backgroundColor = .clear
+        textView.backgroundColor = .white
         
-        addButton.configuration = createAddButtonConfig()
+        addButton.configuration = StyleLibrary.createAddButtonConfig(title: "Добавить")
         addButton.addTarget(self, action: #selector(addButtonTapped(_:)), for: .touchUpInside)
         
         contentView.addSubview(textView)
@@ -44,28 +44,15 @@ final class AddListItemCell: UITableViewCell, UITextViewDelegate {
         textView.pinRight(to: contentView)
         textView.pinTop(to: contentView)
 
-        textView.addSubview(addButton)
+        contentView.addSubview(addButton)
         addButton.setHeight(50)
-        //addButton.pinLeft(to: textView, 16)
-        addButton.pinTop(to: textView, 16)
+        addButton.pinTop(to: textView.bottomAnchor, 25)
         addButton.pinCenterX(to: textView)
         
         textView.delegate = self
         textView.text = "...Добавить элемент списка..."
         
         contentView.backgroundColor = .systemGray6
-    }
-    
-    func createAddButtonConfig() -> UIButton.Configuration {
-        var config: UIButton.Configuration = .filled()
-        config.background.backgroundColor = .systemMint
-        config.baseBackgroundColor = .label
-        config.baseForegroundColor = .white
-        config.title = "Добавить"
-        config.attributedTitle?.font = StyleLibrary.timesFont20
-        config.buttonSize = .medium
-        config.background.cornerRadius = 12
-        return config
     }
     
     @objc
@@ -75,7 +62,7 @@ final class AddListItemCell: UITableViewCell, UITextViewDelegate {
         if !textView.text.elementsEqual("...Добавить элемент списка...") && !textView.text.isEmpty {
             // add item to data in ListInputCtrl
             self.delegate?.newListItem(item: textView.text)
-            textView.text = "|"
+            textView.text = "...Добавить элемент списка..."
             textView.textColor = .tertiaryLabel
         }
     }

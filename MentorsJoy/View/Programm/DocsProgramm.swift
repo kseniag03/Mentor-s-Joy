@@ -16,6 +16,8 @@ final class DocsProgramm {
     var developmentEnvironment = "Xcode 14"
     
     var frameworks = "UIKit"
+    
+    var linksWithDescription: [String] = []
 }
 
 extension DocsProgramm: DocsSettings {
@@ -25,7 +27,10 @@ extension DocsProgramm: DocsSettings {
     }
 
     // MARK: - craft doc of definite type (use different methods)
-    func craftDoc() {
+    func craftDoc() -> URL? {
+        
+        common.docType = .programm
+        
         // MARK: launching craft and begin of doc (annotation is crafted separatly)
         common.setupDocBeginBeforeAnnotation()
         setupAnnotation(document: common.doc)
@@ -35,7 +40,7 @@ extension DocsProgramm: DocsSettings {
         setupProgrammCode(document: common.doc)
         
         // MARK: end of doc and its full craft
-        common.setupDocEnd()
+        return common.setupDocEnd()
     }
     
     func setupAnnotation(document: PDFDocument) {

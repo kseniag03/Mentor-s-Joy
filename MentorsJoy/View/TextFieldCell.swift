@@ -13,6 +13,10 @@ class TextFieldCell: UITableViewCell, UITextFieldDelegate {
 
     var currentIndex = 0
     
+    var maxLength = 20
+    
+    var currentType: DocumentType = .common
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(textField)
@@ -34,20 +38,46 @@ class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     // MARK: defining changed textField content
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         // Get the new text value of the text field
         let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
 
         print("New text value: \(newText ?? ""), indexPath: \(currentIndex)")
         
         if let text = newText {
-            changeValue(index: currentIndex, new: text)
+            if (text.count <= maxLength) {
+                changeValue(index: currentIndex, new: text)
+            }
+            return text.count <= maxLength
+        } else {
+            return false
         }
-        
-        return true
     }
     
     func changeValue(index: Int, new: String) {
-        guard let change = TextConst.texts[index] else { return }
+        
+        var text = TextConst.texts
+        switch currentType {
+        case .task:
+            text = TextConst.taskTexts
+            break
+        case .note:
+            text = TextConst.noteTexts
+            break
+        case .testing:
+            text = TextConst.testingTexts
+            break
+        case .manual:
+            text = TextConst.manualTexts
+            break
+        case .programm:
+            text = TextConst.programTexts
+            break
+        default:
+            break
+        }
+        
+        guard let change = text[index] else { return }
         change.action(new)
     }
 }

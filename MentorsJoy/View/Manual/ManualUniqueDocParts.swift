@@ -17,20 +17,41 @@ extension DocsManual {
     
     func setupConditions(document: PDFDocument) {
         
-        // setup
         common.setupPageHeader1(document: document, title: "УСЛОВИЯ ВЫПОЛНЕНИЯ ПРОГРАММЫ", "2.\t")
+        
+        common.setupPageHeader2(document: document, title: "Минимальный состав технических средств", number: "2.1.")
+        common.setupSimpleText(document: document, text: "\tДля успешного локального запуска программы необходимы:\n")
+        common.setupNumericList(document: document, list: techRequires)
+        
+        common.setupPageHeader2(document: document, title: "Минимальный состав программных средств", number: "2.2.")
+        common.setupNumericList(document: document, list: programRequires)
+        
+        common.setupPageHeader2(document: document, title: "Требования к персоналу (пользователю)", number: "2.3.")
+        common.setupNumericList(document: document, list: userRequires)
     }
     
     func setupExecution(document: PDFDocument) {
         
-        // setup
         common.setupPageHeader1(document: document, title: "ВЫПОЛНЕНИЕ ПРОГРАММЫ", "3.\t")
+        
+        common.setupPageHeader2(document: document, title: "Загрузка программы", number: "3.1.")
+        common.setupSimpleText(document: document, text: "\t\(download)")
+        
+        common.setupPageHeader2(document: document, title: "Запуск программы", number: "3.2.")
+        common.setupSimpleText(document: document, text: "\t\(launch)")
+        
+        common.setupPageHeader2(document: document, title: "Выполнение программы", number: "3.3.")
+        common.setupNumericList(document: document, list: execution)
+        
+        common.setupPageHeader2(document: document, title: "Завершение программы", number: "3.4.")
+        common.setupSimpleText(document: document, text: "\t\(termination)")
     }
     
     func setupMessageToOperator(document: PDFDocument) {
         
-        // setup
         common.setupPageHeader1(document: document, title: "СООБЩЕНИЯ ОПЕРАТОРУ", "4.\t")
+        common.setupSimpleText(document: document, text: "\tПри работе с программой пользователь сможет увидеть следующие сообщения:")
+        common.setupNumericList(document: document, list: messages)
     }
     
     func getAnnotation(_ projectTopic: String = "PROJECT TOPIC", _ projectName: String = "PROJECT NAME") -> String {

@@ -31,6 +31,20 @@ final class StyleLibrary {
         size: 20.0
     )
     
+    static let timesFontBold20 = UIFont(
+        descriptor: UIFontDescriptor(
+            name: "TimesNewRomanPS-BoldMT", size: 20.0
+        ),
+        size: 20.0
+    )
+    
+    static let timesFont36 = UIFont(
+        descriptor: UIFontDescriptor(
+            name: "TimesNewRomanPSMT", size: 36.0
+        ),
+        size: 36.0
+    )
+    
     static let style = PDFTableCellStyle(
         colors: (fill: .clear, text: .black),
         borders: .none,
@@ -79,12 +93,26 @@ final class StyleLibrary {
             size: 12.0)
     )
     
-    static func setupButton(button: UIButton, title : String, view: UIView, constY: CGFloat,
-                             _ backColor: UIColor = .systemRed, _ fontColor: UIColor = .white) {
+    static func createAddButtonConfig(title: String) -> UIButton.Configuration {
+        var config: UIButton.Configuration = .filled()
+        config.background.backgroundColor = .systemBlue
+        config.baseBackgroundColor = .label
+        config.baseForegroundColor = .white
+        config.title = title
+        config.attributedTitle?.font = StyleLibrary.timesFont20
+        config.buttonSize = .medium
+        config.background.cornerRadius = 12
+        return config
+    }
+    
+    static func setupButton(button: UIButton, title : String, view: UIView, constY: CGFloat, _ backColor: UIColor = .systemBlue, _ fontColor: UIColor = .white) {
         // Edit an empty button
         button.backgroundColor = backColor
         button.setTitle(title, for: .normal)
         button.setTitleColor(fontColor, for: .normal)
+        button.titleLabel?.font = StyleLibrary.timesFont20
+        button.layer.cornerRadius = 12
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         
@@ -95,5 +123,12 @@ final class StyleLibrary {
             button.widthAnchor.constraint(equalToConstant: 150),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    static func setupButtonWithoutPlace(button: UIButton, title : String, _ backColor: UIColor = .systemBlue, _ fontColor: UIColor = .white) {
+        // Edit an empty button
+        button.backgroundColor = backColor
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(fontColor, for: .normal)
     }
 }

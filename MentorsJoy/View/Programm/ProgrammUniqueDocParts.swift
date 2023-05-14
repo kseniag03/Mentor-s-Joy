@@ -12,7 +12,7 @@ extension DocsProgramm {
     func setupProgrammCode(document: PDFDocument) {
 
         common.setupPageHeader1(document: document, title: "ТЕКСТ ПРОГРАММЫ", "1.\t")
-        // setup
+        common.setupNumericList(document: document, list: linksWithDescription)
     }
     
     func getAnnotation(_ projectTopic: String = "PROJECT TOPIC") -> String {
@@ -22,7 +22,7 @@ extension DocsProgramm {
         // MARK: programming language, development environment, functionalPurpose, libraries/frameworks list
         
         "\tПрограмма разработана на языке \(programmingLanguage).\n" +
-        "\t\nСреда разработки - \(developmentEnvironment).\n" +
+        "\tСреда разработки - \(developmentEnvironment).\n" +
         "\t\(common.functionPurpose).\n" +
         "\tДля реализации были использованы следующие библиотеки/фреймворки: \(frameworks).\n" +
         

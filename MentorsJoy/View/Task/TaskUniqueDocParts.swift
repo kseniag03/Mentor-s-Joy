@@ -17,7 +17,7 @@ extension DocsTask {
         common.setupSimpleText(document: document, text: "\tНаименование темы разработки – «\(common.projectName)»\n" + "\tНаименование темы разработки на английском языке – «\(common.projectNameEng)»")
         
         common.setupPageHeader2(document: document, title: "Краткая характеристика области применения программы", number: "1.2.")
-        common.setupSimpleText(document: document, text: common.shortDecription)
+        common.setupSimpleText(document: document, text: "\t\(common.shortDecription)")
     }
     
     func setupReasons(document: PDFDocument) {
@@ -34,7 +34,7 @@ extension DocsTask {
     }
     
     func setupFunctionality(document: PDFDocument) {
-        
+        /*
         common.setupPageHeader1(document: document, title: "ТРЕБОВАНИЯ К ПРОГРАММЕ", "4.\t")
         
         common.setupPageHeader2(document: document, title: "Требования к функциональным характеристикам", number: "4.1.")
@@ -59,6 +59,10 @@ extension DocsTask {
         
         common.setupPageHeader2(document: document, title: "Требования к интерфейсу", number: "4.3.")
         common.setupNumericList(document: document, list: interface)
+         */
+        
+        // setup with section number 4
+        common.setupFunctionality(document: document, sectionNum: 4)
         
         common.setupPageHeader2(document: document, title: "Условия эксплуатации", number: "4.4.")
         
@@ -70,10 +74,10 @@ extension DocsTask {
         
         common.setupPageHeader2(document: document, title: "Требования к составу и параметрам технических средств", number: "4.5.")
         common.setupSimpleText(document: document, text: "\tДля работы программы необходим следующий состав технических средств:\n")
-        common.setupNumericList(document: document, list: hardware)
+        common.setupNumericList(document: document, list: common.hardware)
         
         common.setupPageHeader2(document: document, title: "Требования к информационной и программной совместимости", number: "4.6.")
-        common.setupNumericList(document: document, list: software)
+        common.setupNumericList(document: document, list: common.software)
         
         common.setupPageHeader2(document: document, title: "Требования к маркировке и упаковке", number: "4.7.")
         
@@ -118,10 +122,15 @@ extension DocsTask {
         common.setupPageHeader2(document: document, title: "Необходимые стадии разработки, этапы, содержание работ и сроки выполнения", number: "7.1.")
         
         common.setupSimpleText(document: document, text: "\tСтадии, этапы разработки и содержание работ выявлены с учетом ГОСТ 19.102-77 [3].")
-        let deadlines = Array(repeating: "xx.xx.xxxx-xx.xx.xxxx", count: 18)
-        setupStagesTable1(document: document, deadlines: customDeadlines.count == 18 ? customDeadlines : deadlines)
+        var deadlines = Array(repeating: "xx.xx.xxxx-xx.xx.xxxx", count: 18)
+        for i in 0..<18 {
+            if (i < customDeadlines.count) {
+                deadlines[i] = customDeadlines[i]
+            }
+        }
+        setupStagesTable1(document: document, deadlines: deadlines)
         common.addNewPage(document: document)
-        setupStagesTable2(document: document, deadlines: customDeadlines.count == 18 ? customDeadlines : deadlines)
+        setupStagesTable2(document: document, deadlines: deadlines)
         
         common.setupPageHeader2(document: document, title: "Срок разработки конечного продукта", number: "7.2.")
         

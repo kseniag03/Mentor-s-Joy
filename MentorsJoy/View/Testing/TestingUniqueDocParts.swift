@@ -11,20 +11,25 @@ extension DocsTesting {
     
     func setupObject(document: PDFDocument) {
         
-        // setup
         common.setupPageHeader1(document: document, title: "ОБЪЕКТ ИСПЫТАНИЙ", "1.\t")
+        
+        common.setupPageHeader2(document: document, title: "Наименование программы", number: "1.1.")
+        common.setupSimpleText(document: document, text: "\tНаименование темы разработки – «\(common.projectName)»\n" + "\tНаименование темы разработки на английском языке – «\(common.projectNameEng)»")
+        
+        common.setupPageHeader2(document: document, title: "Краткая характеристика области применения программы", number: "1.2.")
+        common.setupSimpleText(document: document, text: "\t\(common.shortDecription)")
     }
     
     func setupPurpose(document: PDFDocument) {
         
-        // setup
         common.setupPageHeader1(document: document, title: "ЦЕЛЬ ИСПЫТАНИЙ", "2.\t")
+        common.setupSimpleText(document: document, text: "\tЦелью испытаний является проверка корректного выполнения программных функций, изложенных в п. 4. «Требования к программе» настоящего Технического задания из комплекта документации в соответствии с ЕСПД (Единой системой программной документации).")
     }
     
     func setupFunctionality(document: PDFDocument) {
         
-        // setup
-        common.setupPageHeader1(document: document, title: "ТРЕБОВАНИЯ К ПРОГРАММЕ", "3.\t")
+        // setup with section number 3
+        common.setupFunctionality(document: document, sectionNum: 3)
     }
     
     func setupDocumentation(document: PDFDocument) {
@@ -35,14 +40,47 @@ extension DocsTesting {
     
     func setupToolsAndOrder(document: PDFDocument) {
         
-        // setup
         common.setupPageHeader1(document: document, title: "СРЕДСТВА И ПОРЯДОК ИСПЫТАНИЙ", "5.\t")
+        
+        common.setupPageHeader2(document: document, title: "Технические средства, используемые во время испытаний", number: "5.1.")
+        common.setupSimpleText(document: document, text: "\tВо время испытаний использовалось устройство со следующими характеристиками:")
+        common.setupNumericList(document: document, list: params)
+        
+        common.setupPageHeader2(document: document, title: "Программные средства, используемые во время испытаний:", number: "5.2.")
+        common.setupSimpleText(document: document, text: "\tВо время испытаний использовались следующие программные средства:")
+        common.setupNumericList(document: document, list: tools)
+        
+        common.setupPageHeader2(document: document, title: "Порядок проведения испытаний", number: "5.3.")
+        common.setupSimpleText(document: document, text: "\tИспытания должны проводиться в следующем порядке:")
+        common.setupNumericList(document: document, list: order)
     }
     
     func setupMethods(document: PDFDocument) {
         
         // setup
         common.setupPageHeader1(document: document, title: "МЕТОДЫ ИСПЫТАНИЙ", "6.\t")
+        
+        common.setupPageHeader2(document: document, title: "Проверка требований к функциональным характеристикам", number: "6.1.")
+        
+        common.setupPageHeader3(document: document, title: "Проверка требований к составу выполняемых функций", number: "6.1.1.")
+        common.setupNumericList(document: document, list: funcCheck)
+        
+        common.setupPageHeader3(document: document, title: "Проверка требований к организации входных данных", number: "6.1.2.")
+        common.setupNumericList(document: document, list: inputCheck)
+        
+        common.setupPageHeader3(document: document, title: "Проверка требований к организации выходных данных", number: "6.1.3.")
+        common.setupNumericList(document: document, list: outputCheck)
+        
+        common.setupPageHeader2(document: document, title: "Проверка требований к надежности", number: "6.2.")
+        
+        common.setupPageHeader3(document: document, title: "Проверка требований к обеспечению надежного (устойчивого) функционирования программы", number: "6.2.1.")
+        common.setupNumericList(document: document, list: safetyCheck)
+        
+        common.setupPageHeader2(document: document, title: "Проверка требований к интерфейсу", number: "6.3.")
+        common.setupNumericList(document: document, list: interfaceCheck)
+        
+        common.setupPageHeader2(document: document, title: "Проверка требований к технической документации", number: "6.4.")
+        common.setupSimpleText(document: document, text: "\tСостав программной документации проверяется наличием полного комплекта документов программной документации в системе SmartLMS и всех требуемых подписей. Проверяется соответствие документации требованиям ГОСТ.\n\tКомплект документов полный. Все документы удовлетворяют представленным требованиям.")
     }
     
     func getAnnotation(_ projectTopic: String = "PROJECT TOPIC") -> String {

@@ -9,7 +9,7 @@ protocol DocsSettings {
     
     func getURLFileName(fileName: String)
     
-    func craftDoc()
+    func craftDoc() -> URL?
     
     func setupAnnotation(document: PDFDocument)
 }

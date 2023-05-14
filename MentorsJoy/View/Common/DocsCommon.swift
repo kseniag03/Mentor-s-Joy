@@ -11,6 +11,8 @@ import TPPDF
 
 class DocsCommon {
     
+    var docType = DocumentType.common
+    
     var titles = PDFDocument(format: .a4)
     var doc = PDFDocument(format: .a4)
     var lrc = PDFDocument(format: .a4)
@@ -19,10 +21,16 @@ class DocsCommon {
     var url: URL?
     
     var performerName = "ФИО"
+    var mentorPost = "Должность"
     var mentorName = "ФИО"
     var year = "2023"
     var date = "«___» _____________"
-    var codifier = "RU.17701729.XX.XX-01 X 01-1"
+    
+    var codifierF = "RU.17701729."
+    var code = "99.99"
+    var codifierS = "-01 "
+    var codifierT = " 01-1"
+    
     var group = "GROUP"
     var city = "Москва"
     
@@ -33,6 +41,14 @@ class DocsCommon {
     var shortDecription = ""
     var functionPurpose = ""
     var exploitPurpose = ""
+    
+    var functionality: [String] = []
+    var input: [String] = []
+    var output: [String] = []
+    var safety: [String] = []
+    var interface: [String] = []
+    var hardware: [String] = []
+    var software: [String] = []
     
     var need = "Приложение будет востребовано."
     var efficiency: [String] = []

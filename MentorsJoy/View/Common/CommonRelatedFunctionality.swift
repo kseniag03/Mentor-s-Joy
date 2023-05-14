@@ -14,10 +14,38 @@ extension DocsCommon {
         setupPageHeader1(document: document, title: "НАЗНАЧЕНИЕ РАЗРАБОТКИ", "\(sectionNum).\t")
         
         setupPageHeader2(document: document, title: "Функциональное назначение", number: "\(sectionNum).1.")
-        setupSimpleText(document: document, text: functionPurpose)
+        setupSimpleText(document: document, text: "\t\(functionPurpose)")
         
         setupPageHeader2(document: document, title: "Эксплуатационное назначение", number: "\(sectionNum).2.")
-        setupSimpleText(document: document, text: exploitPurpose)
+        setupSimpleText(document: document, text: "\t\(exploitPurpose)")
+    }
+    
+    func setupFunctionality(document: PDFDocument, sectionNum: Int) {
+        
+        setupPageHeader1(document: document, title: "ТРЕБОВАНИЯ К ПРОГРАММЕ", "\(sectionNum).\t")
+        
+        setupPageHeader2(document: document, title: "Требования к функциональным характеристикам", number: "\(sectionNum).1.")
+        
+        setupPageHeader3(document: document, title: "Требования к составу выполняемых функций", number: "\(sectionNum).1.1.")
+        setupNumericList(document: document, list: functionality)
+        
+        setupPageHeader3(document: document, title: "Требования к организации входных данных", number: "\(sectionNum).1.2.")
+        setupNumericList(document: document, list: input)
+        
+        setupPageHeader3(document: document, title: "Требования к организации выходных данных", number: "\(sectionNum).1.3.")
+        setupNumericList(document: document, list: output)
+        
+        setupPageHeader2(document: document, title: "Требования к надежности", number: "\(sectionNum).2.")
+        
+        setupPageHeader3(document: document, title: "Требования к обеспечению надежного (устойчивого) функционирования программы", number: "\(sectionNum).2.1.")
+        setupNumericList(document: document, list: safety)
+        
+        setupPageHeader3(document: document, title: "Время восстановления после отказа", number: "\(sectionNum).2.2.")
+        
+        setupSimpleText(document: document, text: "\tВремя восстановления программы не должно превышать времени перезагрузки операционной системы или времени устранения технических неполадок.")
+        
+        setupPageHeader2(document: document, title: "Требования к интерфейсу", number: "\(sectionNum).3.")
+        setupNumericList(document: document, list: interface)
     }
     
     func setupDocumentation(document: PDFDocument, sectionNum: Int) {

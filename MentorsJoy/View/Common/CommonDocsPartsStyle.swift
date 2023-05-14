@@ -16,7 +16,7 @@ extension DocsCommon {
     
     func setupDocBeginBeforeAnnotation() {
         
-        print("!!!  CRAFT TASK LAUNCHED  !!!")
+        print("CRAFT TASK LAUNCHED")
         
         // MARK: check if URL is alredy exist
         
@@ -29,11 +29,11 @@ extension DocsCommon {
             lrc = PDFDocument(format: .a4)
         }
         
-        setupTitle(document: titles, type: .task)
+        setupTitle(document: titles, type: docType)
         addNewPage(document: titles)
-        setupLU(document: titles, type: .task)
+        setupLU(document: titles, type: docType)
         pageNum += 1
-        setupHeader(document: doc)
+        setupHeader(document: doc, type: docType)
     }
     
     func setupDocBeginAfterAnnotation() {
@@ -42,36 +42,38 @@ extension DocsCommon {
         
         // MARK: add if-cond: if d is empty, do not add glossary at document
         if glossaryList.count > 0 {
+            let glossaryList = self.glossaryList.sorted()
             setupGlossary(document: doc, glossaryList)
             addNewPage(document: doc)
         }
     }
     
-    func setupDocEnd() {
+    func setupDocEnd() -> URL? {
         
         addNewPage(document: doc)
         setupSourcesList(document: doc)
         pageNum += 1
-        setupFooter(document: doc)
-        setupLRC(document: lrc)
+        setupFooter(document: doc, type: docType)
         
-        // MARK: fix pagination or delete it......
+        // MARK: fix pagination or delete it...
         var pagination = PDFPagination()
-        pagination.range = (start: 3, end: 7)
-        pagination.hiddenPages = [5]
+        pagination.range = (start: 2, end: 100)
+        pagination.style = .default
         doc.pagination = pagination
         
+        setupLRC(document: lrc)
+        
         // MARK: transfer all docs parts changes and generate file URL
-        setupView()
+        return setupView()
     }
     
-    func setupHeader(document: PDFDocument) {
+    func setupHeader(document: PDFDocument, type: DocumentType) {
         
         let table = PDFTable(rows: 1, columns: 1)
         table.widths = [1.0]
         
         //table[0, 0].content = try? PDFTableContent(content: "")//"\(pageNum)")
-        table[0, 0].content = try? PDFTableContent(content: codifier)
+        table[0, 0].content = try? PDFTableContent(content: codifierF + code + codifierS + type.getRusShort() + codifierT)
         
         table[0, 0].style = StyleLibrary.styleBold
         //table[1, 0].style = style
@@ -81,7 +83,7 @@ extension DocsCommon {
         document.add(.headerCenter, table: table)
     }
     
-    func setupFooter(document: PDFDocument) {
+    func setupFooter(document: PDFDocument, type: DocumentType) {
         
         let table = PDFTable(rows: 4, columns: 5)
         for row in 0..<table.rows.rows.count {
@@ -99,7 +101,7 @@ extension DocsCommon {
         table[1, 3].content = try? PDFTableContent(content: "Подп.")
         table[1, 4].content = try? PDFTableContent(content: "Дата")
         
-        table[2, 0].content = try? PDFTableContent(content: codifier)
+        table[2, 0].content = try? PDFTableContent(content: codifierF + code + codifierS + type.getRusShort() + codifierT)
         
         table[3, 0].content = try? PDFTableContent(content: "Инв. № подл.")
         table[3, 1].content = try? PDFTableContent(content: "Подп. и дата")

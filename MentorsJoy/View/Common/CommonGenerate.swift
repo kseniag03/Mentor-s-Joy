@@ -9,7 +9,7 @@ import TPPDF
 
 extension DocsCommon {
     
-    func setupView() {
+    func setupView() -> URL? {
         print("SETUP DOC LAUNCHED")
         
         titles.background.color = .systemGray6
@@ -18,9 +18,11 @@ extension DocsCommon {
         
         let docsList = [titles, doc, lrc]
         
-        guard let url = getPDFDoc(documents: docsList) else { return }
+        guard let url = getPDFDoc(documents: docsList) else { return nil }
         
-        // MARK: somehow handle url of this file...
+        // MARK: handle url of this file...
+        
+        return url
     }
     
     private func getPDFDoc(documents: [PDFDocument]) -> URL? {

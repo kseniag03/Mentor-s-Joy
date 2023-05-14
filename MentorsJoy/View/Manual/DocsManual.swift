@@ -10,6 +10,22 @@ import TPPDF
 final class DocsManual {
     
     let common = DocsCommon()
+    
+    var techRequires: [String] = []
+    
+    var programRequires: [String] = []
+    
+    var userRequires: [String] = []
+    
+    var download = "Скачать исходные файлы программы"
+    
+    var launch = "Запустить исполняемый файл"
+    
+    var execution: [String] = []
+    
+    var termination = "Для завершения работы с программой необходимо остановить работу программы"
+    
+    var messages: [String] = []
 }
 
 extension DocsManual: DocsSettings {
@@ -19,7 +35,10 @@ extension DocsManual: DocsSettings {
     }
 
     // MARK: - craft doc of definite type (use different methods)
-    func craftDoc() {
+    func craftDoc() -> URL? {
+        
+        common.docType = .manual
+        
         // MARK: launching craft and begin of doc (annotation is crafted separatly)
         common.setupDocBeginBeforeAnnotation()
         setupAnnotation(document: common.doc)
@@ -35,7 +54,7 @@ extension DocsManual: DocsSettings {
         setupMessageToOperator(document: common.doc)
         
         // MARK: end of doc and its full craft
-        common.setupDocEnd()
+        return common.setupDocEnd()
     }
     
     func setupAnnotation(document: PDFDocument) {

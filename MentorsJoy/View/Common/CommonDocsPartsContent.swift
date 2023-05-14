@@ -44,7 +44,7 @@ extension DocsCommon {
         
         bossNames[column: 0].content = [
             try? PDFTableContent(content: "СОГЛАСОВАНО"),
-            try? PDFTableContent(content: "Должность"),
+            try? PDFTableContent(content: "\(mentorPost)"),
             try? PDFTableContent(content: "________________ \(mentorName)"),
             try? PDFTableContent(content: "\(date) \(year) г.")
         ]
@@ -84,27 +84,12 @@ extension DocsCommon {
         let topic = PDFTable(rows: 6, columns: 1)
         topic.widths = [1.0]
         
-        var docTypeName = "DOCS TYPE NAME"
-        
-        switch type {
-        case .task:
-            docTypeName = "Техническое задание"
-        case .note:
-            docTypeName = "Пояснительная записка"
-        case .testing:
-            docTypeName = "Программа и методика испытаний"
-        case .manual:
-            docTypeName = "Руководство оператора"
-        case .programm:
-            docTypeName = "Текст программы"
-        }
-        
         topic[column: 0].content = [
             try? PDFTableContent(content: "\n"),
             try? PDFTableContent(content: projectTopic),
-            try? PDFTableContent(content: docTypeName),
+            try? PDFTableContent(content: type.getRus()),
             try? PDFTableContent(content: "ЛИСТ УТВЕРЖДЕНИЯ"),
-            try? PDFTableContent(content: codifier),
+            try? PDFTableContent(content: codifierF + code + codifierS + type.getRusShort() + codifierT),//code),
             try? PDFTableContent(content: "\n")
         ]
         topic[column: 0].allCellsAlignment = .center
@@ -146,7 +131,7 @@ extension DocsCommon {
     }
     
     func setupLU(document: PDFDocument, type: DocumentType) {
-        
+        //setupLU
         let lu = PDFTable(rows: 3, columns: 1)
         lu.widths = [1.0]
         
@@ -154,7 +139,7 @@ extension DocsCommon {
         
         column.content = [
             try? PDFTableContent(content: "УТВЕРЖДЕН"),
-            try? PDFTableContent(content: codifier),
+            try? PDFTableContent(content: codifierF + code + codifierS + type.getRusShort() + codifierT),
             try? PDFTableContent(content: "\n")
         ]
         column.allCellsAlignment = .left
@@ -167,26 +152,11 @@ extension DocsCommon {
         
         let column2 = topic[column: 0]
         
-        var docTypeName = "DOCS TYPE NAME"
-        
-        switch type {
-        case .task:
-            docTypeName = "Техническое задание"
-        case .note:
-            docTypeName = "Пояснительная записка"
-        case .testing:
-            docTypeName = "Программа и методика испытаний"
-        case .manual:
-            docTypeName = "Руководство оператора"
-        case .programm:
-            docTypeName = "Текст программы"
-        }
-        
         column2.content = [
             try? PDFTableContent(content: "\n"),
             try? PDFTableContent(content: projectTopic),
-            try? PDFTableContent(content: docTypeName),
-            try? PDFTableContent(content: codifier),
+            try? PDFTableContent(content: type.getRus()),
+            try? PDFTableContent(content: codifierF + code + codifierS + type.getRusShort() + codifierT),
             try? PDFTableContent(content: "Листов x\n\n\n\n"),
             try? PDFTableContent(content: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         ]
@@ -230,6 +200,10 @@ extension DocsCommon {
             table[i, 0].content = try? PDFTableContent(content: content)
             table[i, 0].style = StyleLibrary.style
         }
+        
+        // MARK: sort after launching generation process in order to remove right elements
+        
+        let sourceList = self.sourceList.sorted()
         
         for i in 0..<sourceList.count {
             let j = i + gost.count

@@ -11,13 +11,6 @@ final class DocsTask {
     
     let common = DocsCommon()
     
-    var functionality: [String] = []
-    var input: [String] = []
-    var output: [String] = []
-    var safety: [String] = []
-    var interface: [String] = []
-    var hardware: [String] = []
-    var software: [String] = []
     var specialReqs: [String] = []
     
     var customDeadlines: [String] = []
@@ -40,7 +33,9 @@ extension DocsTask: DocsSettings {
     
     // MARK: - craft doc of definite type (use different methods)
     
-    func craftDoc() {
+    func craftDoc() -> URL? {
+        
+        common.docType = .task
         
         // MARK: launching craft and begin of doc (annotation is crafted separatly)
         common.setupDocBeginBeforeAnnotation()
@@ -65,7 +60,7 @@ extension DocsTask: DocsSettings {
         setupAcceptance(document: common.doc)
 
         // MARK: end of doc and its full craft
-        common.setupDocEnd()
+        return common.setupDocEnd()
     }
     
     func setupAnnotation(document: PDFDocument) {

@@ -11,6 +11,12 @@ extension PDFViewController: ChangeCommonFields {
         }
     }
     
+    func setupMentorPost(post: String) {
+        allDocuments.forEach { doc in
+            doc.setupMentorPost(post: post)
+        }
+    }
+    
     func setupMentorName(name: String) {
         allDocuments.forEach { doc in
             doc.setupMentorName(name: name)
@@ -31,7 +37,7 @@ extension PDFViewController: ChangeCommonFields {
     
     func setupCodifier(code: String) {
         allDocuments.forEach { doc in
-            doc.setupCodifier(code: code, type: self.type)
+            doc.setupCodifier(code: code, type: self.currentType)
         }
     }
     
@@ -83,6 +89,43 @@ extension PDFViewController: ChangeCommonFields {
         }
     }
     
+    func addFuncItem(item: String) {
+        allDocuments[0].addFuncItem(item: item)
+        allDocuments[2].addFuncItem(item: item)
+    }
+    
+    func addInputItem(item: String) {
+        allDocuments[0].addInputItem(item: item)
+        allDocuments[2].addInputItem(item: item)
+    }
+    
+    func addOutputItem(item: String) {
+        allDocuments[0].addOutputItem(item: item)
+        allDocuments[2].addOutputItem(item: item)
+    }
+    
+    func addSafetyItem(item: String) {
+        allDocuments[0].addSafetyItem(item: item)
+        allDocuments[2].addSafetyItem(item: item)
+    }
+    
+    func addInterfaceItem(item: String) {
+        allDocuments[0].addInterfaceItem(item: item)
+        allDocuments[2].addInterfaceItem(item: item)
+    }
+    
+    func addHardwareItem(item: String) {
+        allDocuments.forEach { doc in
+            doc.addHardwareItem(item: item)
+        }
+    }
+    
+    func addSoftwareItem(item: String) {
+        allDocuments.forEach { doc in
+            doc.addSoftwareItem(item: item)
+        }
+    }
+    
     func setupNeed(need: String) {
         allDocuments[0].setupNeed(need: need)
         allDocuments[1].setupNeed(need: need)
@@ -117,6 +160,71 @@ extension PDFViewController: ChangeCommonFields {
     func addSourceListItem(item: String) {
         allDocuments.forEach { doc in
             doc.addSourceListItem(item: item)
+        }
+    }
+    
+
+    func removeFuncItem(i: Int) {
+        allDocuments[0].removeFuncItem(i: i)
+        allDocuments[2].removeFuncItem(i: i)
+    }
+    
+    func removeInputItem(i: Int) {
+        allDocuments[0].removeInputItem(i: i)
+        allDocuments[2].removeInputItem(i: i)
+    }
+    
+    func removeOutputItem(i: Int) {
+        allDocuments[0].removeOutputItem(i: i)
+        allDocuments[2].removeOutputItem(i: i)
+    }
+    
+    func removeSafetyItem(i: Int) {
+        allDocuments[0].removeSafetyItem(i: i)
+        allDocuments[2].removeSafetyItem(i: i)
+    }
+    
+    func removeInterfaceItem(i: Int) {
+        allDocuments[0].removeInterfaceItem(i: i)
+        allDocuments[2].removeInterfaceItem(i: i)
+    }
+    
+    func removeHardwareItem(i: Int) {
+        allDocuments.forEach { doc in
+            doc.removeHardwareItem(i: i)
+        }
+    }
+    
+    func removeSoftwareItem(i: Int) {
+        allDocuments.forEach { doc in
+            doc.removeSoftwareItem(i: i)
+        }
+    }
+    
+    func removeEfficiencyItem(i: Int) {
+        allDocuments[0].removeRivalItem(i: i)
+        allDocuments[1].removeRivalItem(i: i)
+    }
+    
+    func removeRivalItem(i: Int) {
+        allDocuments[0].removeRivalItem(i: i)
+        allDocuments[1].removeRivalItem(i: i)
+    }
+    
+    func removeAdvantageItem(i: Int) {
+        allDocuments[0].removeAdvantageItem(i: i)
+        allDocuments[1].removeAdvantageItem(i: i)
+    }
+    
+    func removeGlossaryDictItem(i: Int) {
+        allDocuments.forEach { doc in
+            doc.removeGlossaryDictItem(i: i)
+        }
+    }
+    
+    func removeSourceListItem(i: Int) {
+        allDocuments.forEach { doc in
+            doc.removeSourceListItem(i: i)
         }
     }
 }

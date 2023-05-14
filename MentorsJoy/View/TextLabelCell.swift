@@ -30,7 +30,7 @@ class TextLabelCell: UITableViewCell {
         label.font = StyleLibrary.timesFont16
         label.textColor = .label
         label.numberOfLines = 0
-        label.backgroundColor = .systemGray4
+        label.backgroundColor = .white
         
         contentView.backgroundColor = .systemGray6
         
